@@ -3,235 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dopakit — A system for ADHD solopreneurs</title>
-<meta name="description" content="Notion templates and guides built for how your brain actually works, not how a productivity book says it should.">
+<title>Dopakit — A Notion system for ADHD solopreneurs</title>
+<meta name="description" content="10 templates and guides built around how your brain actually works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #fafaf9; --surface: #fff; --border: #e7e5e4; --text: #1c1917; --muted: #78716c;
-    --accent: #2563eb; --subtle: #f5f5f4;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0c0a09; --surface: #1c1917; --border: #292524; --text: #e7e5e4; --muted: #a8a29e; --accent: #3b82f6; --subtle: #171412; }
-  }
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
-  .mx { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
-  .narrow { max-width: 640px; margin: 0 auto; padding: 0 32px; }
+  :root { --bg:#0a0a0b; --surface:#111113; --border:#1e1e22; --text:#ededef; --muted:#7d7d84; --accent:#3b82f6; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:16px;overflow-x:hidden}
+
+  .w{max-width:1100px;margin:0 auto;padding:0 40px}
+  .narrow{max-width:680px;margin:0 auto;padding:0 40px}
 
   /* Nav */
-  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-  .nav.scrolled { border-color: var(--border); }
-  .nav .inner { max-width: 1040px; margin: 0 auto; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
-  .nav .logo { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); text-decoration: none; }
-  .nav .cta { background: var(--text); color: var(--bg); padding: 8px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
-  .nav .cta:hover { opacity: 0.8; }
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(10,10,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--border)}
+  nav .logo{font-size:18px;font-weight:550;letter-spacing:-.3px;color:var(--text);text-decoration:none}
+  nav a.cta{background:var(--text);color:var(--bg);padding:9px 20px;border-radius:7px;font-size:14px;font-weight:540;text-decoration:none;transition:transform .15s}
+  nav a.cta:hover{transform:scale(1.03)}
 
   /* Hero */
-  .hero { padding: 160px 0 80px; text-align: center; }
-  .hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; letter-spacing: -0.8px; line-height: 1.15; margin-bottom: 20px; }
-  .hero p { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 36px; line-height: 1.6; }
-  .hero .actions { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
-  .btn { display: inline-block; background: var(--text); color: var(--bg); padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
-  .btn:hover { opacity: 0.85; }
-  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
-  .hero .hint { font-size: 13px; color: var(--muted); margin-top: 20px; }
+  .hero{padding:200px 0 120px;text-align:center}
+  .hero h1{font-size:clamp(36px,6vw,64px);font-weight:450;letter-spacing:-1.5px;line-height:1.05;margin-bottom:24px;max-width:800px;margin-left:auto;margin-right:auto}
+  .hero p{font-size:19px;color:var(--muted);max-width:540px;margin:0 auto 40px;line-height:1.55}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--text);color:var(--bg);padding:13px 28px;border-radius:8px;font-size:15px;font-weight:540;text-decoration:none;transition:opacity .15s;border:none;cursor:pointer}
+  .btn:hover{opacity:.88}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .hero .hint{font-size:13px;color:var(--muted);margin-top:24px}
 
   /* Sections */
-  section { padding: 100px 0; }
-  section.alt { background: var(--subtle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 16px; }
-  h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 16px; }
-  .intro { font-size: 17px; color: var(--muted); margin-bottom: 48px; max-width: 560px; }
+  section{padding:140px 0}
+  .label{font-size:12px;font-weight:550;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:20px}
+  h2{font-size:clamp(28px,4vw,40px);font-weight:450;letter-spacing:-.6px;line-height:1.15;margin-bottom:20px}
+  .intro{font-size:17px;color:var(--muted);margin-bottom:64px;max-width:520px;line-height:1.6}
+  .intro strong{color:var(--text);font-weight:500}
 
-  /* Showcase */
-  .showcase { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 40px; }
-  .showcase img { width: 100%; display: block; }
-  .showcase .caption { padding: 14px 20px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); }
+  /* Product mockup */
+  .mockup{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:48px;box-shadow:0 0 0 1px rgba(255,255,255,.03),0 20px 60px -20px rgba(0,0,0,.4)}
+  .mockup .topbar{background:#16161a;padding:12px 16px;display:flex;gap:7px;border-bottom:1px solid var(--border)}
+  .mockup .topbar .dot{width:11px;height:11px;border-radius:50%}
+  .mockup .topbar .dot:nth-child(1){background:#ff5f57}.mockup .topbar .dot:nth-child(2){background:#fdbc40}.mockup .topbar .dot:nth-child(3){background:#32c840}
+  .mockup .content{padding:40px;display:grid;grid-template-columns:220px 1fr;gap:32px;min-height:320px}
+  @media(max-width:680px){.mockup .content{grid-template-columns:1fr}}
+  .mockup .sidebar{display:flex;flex-direction:column;gap:8px}
+  .mockup .sidebar .item{padding:10px 14px;border-radius:6px;font-size:14px;color:var(--muted);font-weight:450}
+  .mockup .sidebar .item.active{background:rgba(59,130,246,.12);color:var(--accent)}
+  .mockup .main-area{display:flex;flex-direction:column;gap:14px}
+  .mockup .main-area h4{font-size:17px;font-weight:500;margin-bottom:2px}
+  .mockup .main-area .sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .mockup .task{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:6px;background:var(--bg);border:1px solid var(--border);font-size:14px}
+  .mockup .task .check{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0}
+  .mockup .task .check.done{background:var(--accent);border-color:var(--accent)}
+  .mockup .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:540;background:rgba(34,197,94,.15);color:#4ade80}
 
-  /* Module list */
-  .mod-list { border-top: 1px solid var(--border); }
-  .mod-item { display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
-  .mod-item .idx { font-size: 13px; color: var(--muted); font-weight: 500; }
-  .mod-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-  .mod-item p { font-size: 15px; color: var(--muted); }
+  /* Features - list style */
+  .feature-list{display:flex;flex-direction:column;gap:2px;margin-top:48px}
+  .feat{display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+  .feat .icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;background:rgba(59,130,246,.1);color:var(--accent)}
+  .feat h3{font-size:16px;font-weight:500;margin-bottom:3px}
+  .feat p{font-size:14px;color:var(--muted)}
 
-  /* Pricing grid */
-  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-  @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
-  .plan { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
-  .plan h3 { font-size: 17px; font-weight: 600; }
-  .plan .price { font-size: 36px; font-weight: 700; margin: 16px 0 4px; }
-  .plan .price span { font-size: 15px; font-weight: 400; color: var(--muted); }
-  .plan ul { list-style: none; margin: 20px 0 24px; }
-  .plan ul li { padding: 5px 0; font-size: 14px; color: var(--muted); }
-  .plan .buy { display: block; width: 100%; text-align: center; background: var(--text); color: var(--bg); padding: 12px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
-  .plan .buy:hover { opacity: 0.85; }
+  /* Pricing */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+  @media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
+  .plan{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 32px}
+  .plan h3{font-size:18px;font-weight:500;margin-bottom:4px}
+  .plan .price{font-size:40px;font-weight:500;letter-spacing:-1px;margin:20px 0 4px}
+  .plan .price span{font-size:16px;font-weight:400;color:var(--muted)}
+  .plan ul{list-style:none;margin:24px 0 28px}
+  .plan ul li{padding:6px 0;font-size:14px;color:var(--muted)}
+  .plan .buy{display:block;width:100%;text-align:center;background:var(--text);color:var(--bg);padding:13px;border-radius:8px;font-size:15px;font-weight:540;text-decoration:none;transition:opacity .15s}
+  .plan .buy:hover{opacity:.88}
 
   /* FAQ */
-  .faq details { padding: 18px 0; border-bottom: 1px solid var(--border); }
-  .faq details:first-of-type { border-top: 1px solid var(--border); }
-  .faq summary { font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-  .faq summary::after { content: "+"; font-size: 20px; color: var(--muted); font-weight: 300; }
-  .faq details[open] summary::after { content: "−"; }
-  .faq details p { font-size: 15px; color: var(--muted); padding-top: 12px; }
+  .faq details{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+  .faq details:first-of-type{border-top:1px solid rgba(255,255,255,.05)}
+  .faq summary{font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::after{content:'+';font-size:20px;color:var(--muted);font-weight:300;transition:transform .2s}
+  .faq details[open] summary::after{content:'\u2212'}
+  .faq details p{font-size:15px;color:var(--muted);padding-top:14px;line-height:1.6}
 
   /* CTA */
-  .cta-block { text-align: center; }
-  .cta-block h2 { font-size: 32px; }
+  .cta-section{text-align:center;padding:160px 0}
+  .cta-section h2{font-size:clamp(30px,5vw,48px)}
 
   /* Footer */
-  footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
-  footer a { color: var(--text); }
+  footer{text-align:center;padding:48px 40px;border-top:1px solid rgba(255,255,255,.05);font-size:13px;color:var(--muted)}
+  footer a{color:var(--text);text-decoration:none}
+  footer a:hover{text-decoration:underline}
 
-  .demo-box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 48px 32px; text-align: center; margin-top: 40px; }
-  .demo-box .tag { display: inline-block; background: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 20px; }
-  @media (prefers-color-scheme: dark) { .demo-box .tag { background: #1e3a5f; color: #93c5fd; } }
-  .demo-box .browser { margin-top: 24px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .demo-box .browser .topbar { background: var(--subtle); padding: 10px 16px; display: flex; gap: 6px; border-bottom: 1px solid var(--border); }
-  .demo-box .browser .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
-  .demo-box .browser .body { padding: 24px; }
-  .demo-box .browser .body .row { display: flex; gap: 12px; margin-bottom: 8px; }
-  .demo-box .browser .body .bar { height: 10px; background: var(--subtle); border-radius: 4px; }
-  .demo-box .browser .body .bar.w30 { width: 30%; }
-  .demo-box .browser .body .bar.w50 { width: 50%; }
-  .demo-box .browser .body .bar.w70 { width: 70%; }
-  .demo-box .browser .body .bar.w90 { width: 90%; }
-  .demo-box .browser .body .bar.accent { background: var(--accent); opacity: 0.3; }
+  /* Scroll animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:600px){
+    .w,.narrow{padding:0 24px}
+    nav{padding:14px 24px}
+    section{padding:80px 0}
+    .hero{padding:140px 0 80px}
+    .mockup .content{padding:24px}
+  }
 </style>
 </head>
 <body>
 
-<nav class="nav" id="nav">
-  <div class="inner">
-    <a href="/" class="logo">Dopakit</a>
-    <a href="#pricing" class="cta">Get the system</a>
-  </div>
+<nav id="nav">
+  <a href="/" class="logo">Dopakit</a>
+  <a href="#pricing" class="cta">Get the system</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="narrow">
     <h1>A Notion system for ADHD brains that run businesses.</h1>
-    <p>10 templates, short guides, and a framework built around dopamine — not discipline. For solopreneurs who've tried everything else.</p>
-    <div class="actions">
-      <a href="#pricing" class="btn">Get the system — $19</a>
-      <a href="#inside" class="btn btn-ghost">See what's inside</a>
+    <p>Ten templates, short guides, and a framework built around how your brain actually works — not how a productivity book says it should.</p>
+    <div class="btns">
+      <a href="#pricing" class="btn">Get the system &mdash; $19</a>
+      <a href="#inside" class="btn ghost">See what's inside</a>
     </div>
-    <div class="hint">Notion · PDF · Google Sheets. Lifetime access. 30-day refund.</div>
+    <div class="hint">Notion &middot; PDF &middot; Google Sheets &middot; 30-day refund</div>
   </div>
 </section>
 
-<!-- PRODUCT SHOWCASE -->
-<section class="alt" id="inside">
-  <div class="mx">
+<section id="inside">
+  <div class="w">
     <div class="label">The system</div>
-    <h2>Pre-built. Visual. Impossible to overcomplicate.</h2>
-    <p class="intro">A Notion workspace you duplicate and customize in 30 minutes. No blank page. No "design your own system" paralysis.</p>
-    <div class="demo-box">
-      <div class="tag">Notion Dashboard Preview</div>
-      <div class="browser">
-        <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="body">
-          <div class="row"><div class="bar w50 accent"></div></div>
-          <div class="row"><div class="bar w30"></div><div class="bar w30 accent"></div><div class="bar w30"></div></div>
-          <div style="margin-top:16px;"></div>
-          <div class="row"><div class="bar w70"></div></div>
-          <div class="row"><div class="bar w90"></div></div>
-          <div class="row"><div class="bar w50"></div></div>
-          <div style="margin-top:16px;"></div>
-          <div class="row"><div class="bar w30 accent"></div></div>
-          <div class="row"><div class="bar w70 accent"></div></div>
-          <div class="row"><div class="bar w50 accent"></div></div>
+    <h2>Pre-built. Visual.<br>Impossible to overcomplicate.</h2>
+    <p class="intro">Duplicate the Notion workspace and you're running in 30 minutes. No blank page paralysis. No "design your own system" rabbit hole.</p>
+    <div class="mockup">
+      <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="content">
+        <div class="sidebar">
+          <div class="item active">Dashboard</div>
+          <div class="item">This Week</div>
+          <div class="item">Projects</div>
+          <div class="item">Clients</div>
+          <div class="item">Money</div>
+          <div class="item">Reset</div>
+        </div>
+        <div class="main-area">
+          <h4>Today &mdash; Thursday</h4>
+          <div class="sub">2 of 5 tasks done &middot; <span class="badge">On track</span></div>
+          <div class="task"><span class="check done"></span> Review Q3 proposal draft</div>
+          <div class="task"><span class="check done"></span> Invoice client &mdash; Project Dawn</div>
+          <div class="task"><span class="check"></span> Outline blog post on energy management</div>
+          <div class="task"><span class="check"></span> Tax estimate for August</div>
+          <div class="task"><span class="check"></span> Follow up with leads from Tuesday</div>
+          <div style="margin-top:8px;font-size:13px;color:var(--muted)">Next: Weekly review in 2 hours</div>
         </div>
       </div>
-      <div class="caption">The Dashboard · Day view with task breakdowns · Weekly planner with buffer zones</div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
 <section>
   <div class="narrow">
     <div class="label">The problem</div>
-    <h2>Your brain works differently. Most systems don't account for that.</h2>
-    <p class="intro">Standard productivity advice assumes a brain that does what it's told. Yours needs task breakdowns small enough to start. Dopamine hits built into the workflow. Permission to reset without shame.</p>
-    <p style="color:var(--muted);font-size:15px;">Dopakit doesn't ask you to change. It adapts to how you already work.</p>
+    <h2>Standard productivity advice wasn't written for your brain.</h2>
+    <p class="intro">GTD, Bullet Journaling, Pomodoro &mdash; great systems. Built for people whose brains do what they're told. <strong>You need task breakdowns small enough to start. Dopamine hits built into the workflow. Permission to reset without shame.</strong></p>
+    <p style="color:var(--muted);font-size:15px">Dopakit doesn't ask you to change. It works with how you already work.</p>
   </div>
 </section>
 
-<!-- MODULES -->
-<section class="alt">
+<section>
   <div class="narrow">
-    <div class="label">What you get</div>
-    <h2>Everything inside</h2>
-    <div class="mod-list">
-      <div class="mod-item"><span class="idx">01</span><div><h3>Dashboard</h3><p>Day, week, and projects in one visual workspace. Not a blank page.</p></div></div>
-      <div class="mod-item"><span class="idx">02</span><div><h3>Task Breakdowns</h3><p>"Write proposal" becomes six small steps. Each finished step hits dopamine.</p></div></div>
-      <div class="mod-item"><span class="idx">03</span><div><h3>Weekly Planning</h3><p>Time blocks with buffer zones. A 10-minute Sunday ritual that holds on Monday.</p></div></div>
-      <div class="mod-item"><span class="idx">04</span><div><h3>Body Doubling</h3><p>Virtual coworking setup guide. Accountability partner framework. Win log.</p></div></div>
-      <div class="mod-item"><span class="idx">05</span><div><h3>Client Projects</h3><p>Visual pipeline. "Where was I?" notes for when you got pulled away.</p></div></div>
-      <div class="mod-item"><span class="idx">06</span><div><h3>Dopamine Menu</h3><p>Earn quick, healthy rewards by finishing tasks. Your brain needs the carrot.</p></div></div>
-      <div class="mod-item"><span class="idx">07</span><div><h3>Money Tracking</h3><p>Google Sheet for irregular income. Know what to set aside for taxes.</p></div></div>
-      <div class="mod-item"><span class="idx">08</span><div><h3>Energy Management</h3><p>Match hard tasks to your natural peak hours. Protect deep work.</p></div></div>
-      <div class="mod-item"><span class="idx">09</span><div><h3>Content System</h3><p>Batch four posts in one session. Repurpose across platforms.</p></div></div>
-      <div class="mod-item"><span class="idx">10</span><div><h3>Reset Protocols</h3><p>Bad brain day procedure. Overwhelm emergency plan. A monthly review that asks "what worked?"</p></div></div>
+    <div class="label">Everything inside</div>
+    <h2>Ten modules. One system.</h2>
+    <div class="feature-list">
+      <div class="feat reveal"><span class="icon">01</span><div><h3>Dashboard</h3><p>Day, week, projects in one visual workspace. Not a blank page.</p></div></div>
+      <div class="feat reveal"><span class="icon">02</span><div><h3>Task Breakdowns</h3><p>"Write proposal" becomes six small steps. Each checkmark gives your brain what it needs.</p></div></div>
+      <div class="feat reveal"><span class="icon">03</span><div><h3>Weekly Planning</h3><p>Time blocks with buffer zones. A ten-minute Sunday ritual that actually works on Monday.</p></div></div>
+      <div class="feat reveal"><span class="icon">04</span><div><h3>Body Doubling</h3><p>Virtual coworking setup. Accountability partner framework. A log that proves you did the thing.</p></div></div>
+      <div class="feat reveal"><span class="icon">05</span><div><h3>Client Projects</h3><p>Visual pipeline. Deadline warnings. "Where was I?" notes for when you got pulled away.</p></div></div>
+      <div class="feat reveal"><span class="icon">06</span><div><h3>Dopamine Menu</h3><p>Quick, healthy rewards you earn by finishing tasks. Your brain needs the carrot too.</p></div></div>
+      <div class="feat reveal"><span class="icon">07</span><div><h3>Money Tracking</h3><p>A Google Sheet for irregular income. Know what's coming and what to set aside.</p></div></div>
+      <div class="feat reveal"><span class="icon">08</span><div><h3>Energy Management</h3><p>Match hard tasks to your peak hours. Protect deep work from the afternoon chaos.</p></div></div>
+      <div class="feat reveal"><span class="icon">09</span><div><h3>Content System</h3><p>Write four posts in one session. Repurpose one idea across platforms.</p></div></div>
+      <div class="feat reveal"><span class="icon">10</span><div><h3>Reset Protocols</h3><p>Bad brain day procedure. Overwhelm plan. A monthly review that asks "what worked?"</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
   <div class="narrow">
     <div class="label">Pricing</div>
     <h2>One payment. Yours forever.</h2>
-    <div class="plans">
+    <div class="pricing-grid">
       <div class="plan">
         <h3>Complete Bundle</h3>
-        <div class="price">$19 <span>USD</span></div>
-        <ul><li>Notion workspace (10 modules)</li><li>Printable PDF planner</li><li>Google Sheets tracker</li><li>Body doubling guide</li><li>Lifetime updates</li></ul>
+        <div class="price">$19<span> USD</span></div>
+        <ul><li>Full Notion workspace</li><li>Printable PDF planner (A4 + US)</li><li>Google Sheets tracker</li><li>Body doubling guide</li><li>Lifetime updates</li></ul>
         <a href="#" class="buy">Buy on Gumroad</a>
       </div>
       <div class="plan">
         <h3>PDF Only</h3>
-        <div class="price">$12 <span>USD</span></div>
-        <ul><li>Printable planner</li><li>Money tracker (PDF)</li><li>Body doubling guide</li><li>Lifetime updates</li></ul>
+        <div class="price">$12<span> USD</span></div>
+        <ul><li>Printable planner</li><li>Money tracker</li><li>Body doubling guide</li><li>Lifetime updates</li></ul>
         <a href="#" class="buy">Buy on Gumroad</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="alt faq">
+<section class="faq">
   <div class="narrow">
     <div class="label">FAQ</div>
-    <details><summary>I tried Notion before and abandoned it. Why is this different?</summary><p>Most setups are blank canvases. Dopakit is pre-built. 30 minutes to customize, not weeks to design.</p></details>
-    <details><summary>Do I need an ADHD diagnosis?</summary><p>No. If standard productivity advice has never worked for you, this is for you.</p></details>
-    <details><summary>How does the refund work?</summary><p>Email within 30 days. Full refund, no questions.</p></details>
+    <details><summary>I've tried Notion before and abandoned it.</summary><p>Most Notion setups are blank canvases that overwhelm ADHD brains within minutes. Dopakit is pre-built. You duplicate, spend 30 minutes personalizing, and you're done. No designing from scratch.</p></details>
+    <details><summary>Do I need a diagnosis?</summary><p>No. If standard productivity advice has never worked for you, this system was built for your brain.</p></details>
+    <details><summary>What's the refund policy?</summary><p>Thirty days. Email us. Full refund. We've all bought enough things that didn't stick.</p></details>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-block">
+<section class="cta-section">
   <div class="narrow">
     <h2>Stop fighting your brain.</h2>
-    <p style="color:var(--muted);font-size:17px;margin:12px 0 28px;">A system that works with your dopamine, not against it.</p>
-    <a href="#pricing" class="btn">Get Dopakit — $19</a>
+    <p style="color:var(--muted);font-size:18px;margin:16px 0 32px">A system that works with your dopamine, not against it.</p>
+    <a href="#pricing" class="btn">Get Dopakit &mdash; $19</a>
   </div>
 </section>
 
 <footer>
   <div class="narrow">
-    <p>Dopakit · ADHD-friendly productivity for people who work for themselves.</p>
-    <p style="margin-top:8px;">© 2026 · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    <p style="margin-top:8px;font-size:12px;">Created with AI assistance. Not medical advice.</p>
+    <p>Dopakit &middot; ADHD-friendly productivity for people who work for themselves.</p>
+    <p style="margin-top:10px">2026 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p style="margin-top:10px;font-size:12px">Created with AI assistance. Not medical advice.</p>
   </div>
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10));
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
