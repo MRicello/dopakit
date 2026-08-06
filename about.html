@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Dopakit</title>
+<meta name="description" content="The founder story behind Dopakit: a productivity system built by someone with ADHD, after every standard system failed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #fff;
+    --border: #e7e5e4;
+    --border-light: #f0efed;
+    --text: #1c1917;
+    --text-secondary: #57534e;
+    --muted: #78716c;
+    --accent: #1d4ed8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+  .narrow { max-width: 640px; margin: 0 auto; padding: 0 32px; }
+
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,250,249,.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent; transition: border-color .25s;
+  }
+  .nav.scrolled { border-color: var(--border); }
+  .nav .logo { font-size: 17px; font-weight: 600; letter-spacing: -.2px; color: var(--text); text-decoration: none; }
+  .nav .links { display: flex; align-items: center; gap: 24px; }
+  .nav .link { font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none; }
+  .nav .link:hover { color: var(--text); }
+  .nav .link.on { color: var(--text); }
+  .nav .cta {
+    background: var(--text); color: var(--bg); padding: 8px 18px; border-radius: 6px;
+    font-size: 14px; font-weight: 550; text-decoration: none; transition: opacity .15s;
+  }
+  .nav .cta:hover { opacity: .85; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--text); color: var(--bg); padding: 13px 28px;
+    border-radius: 8px; font-size: 15px; font-weight: 550; text-decoration: none;
+    transition: opacity .15s; border: none; cursor: pointer;
+  }
+  .btn:hover { opacity: .88; }
+
+  /* Hero */
+  .hero { padding: 180px 0 80px; text-align: center; }
+  .hero .overline { font-size: 13px; font-weight: 550; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(34px, 5.5vw, 56px); font-weight: 550; letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 20px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .hero p { font-size: 18px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.55; }
+
+  /* Sections */
+  section { padding: 90px 0; }
+  section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .label { font-size: 12px; font-weight: 550; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
+  h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 550; letter-spacing: -.5px; line-height: 1.2; margin-bottom: 20px; }
+  .story p { font-size: 17px; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.65; }
+  .story p strong { color: var(--text); font-weight: 550; }
+
+  /* Quote */
+  .quote { border-left: 2px solid var(--border); padding: 6px 0 6px 20px; margin: 40px 0; }
+  .quote p { font-size: 19px; color: var(--text); font-style: italic; line-height: 1.5; }
+
+  /* List */
+  .story-list { list-style: none; margin: 8px 0 22px; }
+  .story-list li { font-size: 16px; color: var(--text-secondary); padding: 6px 0 6px 20px; position: relative; }
+  .story-list li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; border-radius: 50%; background: var(--border); }
+
+  /* CTA */
+  .cta-block { text-align: center; padding: 120px 0; }
+  .cta-block h2 { font-size: clamp(28px, 4.5vw, 42px); }
+  .cta-block p { font-size: 17px; color: var(--text-secondary); margin: 12px 0 28px; }
+  .cta-block .note { font-size: 13px; color: var(--muted); margin-top: 20px; }
+
+  /* Footer */
+  footer { text-align: center; padding: 44px 32px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+  footer a { color: var(--text); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .container, .narrow { padding: 0 22px; }
+    .nav { padding: 14px 22px; }
+    section { padding: 70px 0; }
+    .hero { padding: 140px 0 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="/" class="logo">Dopakit</a>
+  <div class="links">
+    <a href="/about.html" class="link on">About</a>
+    <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="cta">Get the system</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="narrow">
+    <div class="overline">About</div>
+    <h1>I built the system I couldn't find.</h1>
+    <p>A founder story about abandoned planners, dopamine, and the day I stopped trying to fix my brain.</p>
+  </div>
+</section>
+
+<section>
+  <div class="narrow story">
+    <div class="label">The diagnosis</div>
+    <p>I was 31 when a doctor told me I had ADHD. I laughed. I'd been running my own business for years — invoicing clients, shipping work, paying bills. "Fine" by any outside measure. <strong>Fine, except for the drawer full of abandoned planners.</strong></p>
+    <p>The diagnosis didn't change who I was. It changed the story I'd been telling myself. I wasn't lazy. I wasn't undisciplined. I was running a business on a brain that works differently, using systems built for brains that don't.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="narrow story">
+    <div class="label">The graveyard of systems</div>
+    <h2>I tried everything. Everything failed.</h2>
+    <ul class="story-list">
+      <li>GTD — read the book, built the lists, quit in week three.</li>
+      <li>Bullet journaling — bought the nice notebook, used nine pages.</li>
+      <li>Five planners — none made it past week two.</li>
+      <li>A wall of apps — Notion, Todoist, Trello, then a new one every month.</li>
+    </ul>
+    <p>Every single one assumed the same thing: <strong>a brain that does what it's told.</strong> Mine doesn't. It needs small steps. It needs visual progress. It needs a reason to start that isn't shame.</p>
+    <p>That's not a moral failure. It's just how the hardware works.</p>
+    <div class="quote">
+      <p>I didn't need more discipline. I needed a system built for my brain.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow story">
+    <div class="label">The build</div>
+    <h2>So I built my own.</h2>
+    <p>One Notion page. Then ten modules. Task breakdowns that turn "write the proposal" into six checkable steps. A dopamine menu so finishing something actually felt like something. A body doubling log. Energy matching. Reset protocols for the bad days — because the bad days were coming whether I planned for them or not.</p>
+    <p>I stopped designing for the person I wished I was. <strong>I started designing for the person I am.</strong></p>
+    <p>The first week, I shipped more of my own work than in the previous three months. The second week, I did it again. Not because I'd gotten more disciplined. Because the system finally matched the brain.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="narrow story">
+    <div class="label">The test</div>
+    <h2>Then I gave it away.</h2>
+    <p>First to two friends. Then to a few more. Freelancers. Consultants. Coaches. Creators. People whose client work always got done — and whose own work never did.</p>
+    <p>Today, <strong>200+ solopreneurs use Dopakit.</strong> The stories sound the same: "I stopped rebuilding my system every Monday." "I invoiced on time for the first time in a year." "I don't hate my planner anymore."</p>
+    <div class="quote">
+      <p>You don't need to change who you are. You need tools that fit who you already are.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow story">
+    <div class="label">What this isn't</div>
+    <h2>One honest note.</h2>
+    <p>I'm not a doctor. Dopakit isn't medical advice, and it won't replace treatment if you need it. It's a system built from lived experience and a decade of trial and error — and it works for a lot of people whose brains work like mine.</p>
+    <p>If you've been told your whole life that you just need to try harder, this is for you. <strong>Try a system that fits instead.</strong></p>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="narrow">
+    <h2>The system that finally stuck.</h2>
+    <p>Ten modules. Thirty-minute setup. Thirty-day money-back guarantee.</p>
+    <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="btn">Get Dopakit — $19</a>
+    <div class="note">— Ricello, founder of Dopakit</div>
+  </div>
+</section>
+
+<footer>
+  <div class="narrow">
+    <p>Dopakit. A productivity system for ADHD solopreneurs, built by one.</p>
+    <p style="margin-top:8px">2026 &middot; <a href="/">Home</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p style="margin-top:8px;font-size:12px">Not medical advice.</p>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10));
+</script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dopakit - A Notion system for ADHD solopreneurs</title>
-<meta name="description" content="Ten templates and short guides built around how your brain actually works. Setup in ~30 minutes. 30-day refund.">
+<title>Dopakit — A Notion System for ADHD Solopreneurs</title>
+<meta name="description" content="Ten modules. Thirty-minute setup. A Notion workspace built for how an ADHD brain actually works — not how productivity books say it should.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap" rel="stylesheet">
@@ -28,9 +28,6 @@
     line-height: 1.55;
     font-size: 16px;
   }
-  ::selection { background: rgba(29,78,216,.14); }
-  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-  section[id] { scroll-margin-top: 84px; }
 
   .container { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
   .narrow { max-width: 640px; margin: 0 auto; padding: 0 32px; }
@@ -45,50 +42,35 @@
   }
   .nav.scrolled { border-color: var(--border); }
   .nav .logo { font-size: 17px; font-weight: 600; letter-spacing: -.2px; color: var(--text); text-decoration: none; }
+  .nav .links { display: flex; align-items: center; gap: 24px; }
+  .nav .link { font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none; }
+  .nav .link:hover { color: var(--text); }
+  .nav .link.on { color: var(--text); }
   .nav .cta {
     background: var(--text); color: var(--bg); padding: 8px 18px; border-radius: 6px;
-    font-size: 14px; font-weight: 550; text-decoration: none;
-    transition: opacity .15s, transform .15s, box-shadow .2s;
+    font-size: 14px; font-weight: 550; text-decoration: none; transition: opacity .15s;
   }
-  .nav .cta:hover { opacity: .92; transform: translateY(-1px); box-shadow: 0 4px 12px -4px rgba(0,0,0,.4); }
+  .nav .cta:hover { opacity: .85; }
 
   /* Buttons */
   .btn {
     display: inline-flex; align-items: center; gap: 6px;
     background: var(--text); color: var(--bg); padding: 13px 28px;
     border-radius: 8px; font-size: 15px; font-weight: 550; text-decoration: none;
-    border: none; cursor: pointer;
-    transition: transform .15s ease, box-shadow .2s ease, opacity .15s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    transition: opacity .15s; border: none; cursor: pointer;
   }
-  .btn:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(0,0,0,.45); }
-  .btn:active { transform: translateY(0); }
-  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); box-shadow: none; }
-  .btn.outline:hover { background: var(--border-light); border-color: #d6d3d1; transform: translateY(-1px); box-shadow: 0 6px 16px -10px rgba(0,0,0,.3); }
+  .btn:hover { opacity: .88; }
+  .btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn.outline:hover { background: var(--border-light); opacity: 1; }
 
   /* Hero */
-  .hero { padding: 180px 0 100px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before {
-    content: ''; position: absolute; top: -240px; left: 50%; transform: translateX(-50%);
-    width: 920px; height: 480px; pointer-events: none;
-    background: radial-gradient(closest-side, rgba(29,78,216,.07), transparent);
-  }
+  .hero { padding: 180px 0 100px; text-align: center; }
   .hero .overline { font-size: 13px; font-weight: 550; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-bottom: 20px; }
   .hero h1 { font-size: clamp(34px, 5.5vw, 56px); font-weight: 550; letter-spacing: -1.2px; line-height: 1.08; margin-bottom: 20px; max-width: 720px; margin-left: auto; margin-right: auto; }
   .hero p { font-size: 18px; color: var(--text-secondary); max-width: 520px; margin: 0 auto 36px; line-height: 1.55; }
   .hero .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .hero .note { font-size: 13px; color: var(--muted); margin-top: 22px; }
-
-  /* Trusted-by / works-with */
-  .logos { margin-top: 72px; }
-  .logos p { font-size: 12px; font-weight: 550; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-bottom: 22px; }
-  .logo-row { display: flex; justify-content: center; align-items: center; gap: 44px; flex-wrap: wrap; }
-  .logo-row span { color: #a8a29e; cursor: default; transition: color .2s ease, transform .2s ease; letter-spacing: -.2px; }
-  .logo-row span:hover { color: var(--text); transform: translateY(-1px); }
-  .logo-row .l1 { font-size: 19px; font-weight: 700; letter-spacing: -.6px; }
-  .logo-row .l2 { font-size: 16px; font-weight: 500; }
-  .logo-row .l3 { font-size: 17px; font-weight: 600; font-style: italic; letter-spacing: -.4px; }
-  .logo-row .l4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; }
+  .hero .proof { font-size: 13px; color: var(--muted); margin-top: 10px; }
 
   /* Sections */
   section { padding: 120px 0; }
@@ -96,26 +78,13 @@
   .label { font-size: 12px; font-weight: 550; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
   h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 550; letter-spacing: -.5px; line-height: 1.18; margin-bottom: 16px; }
   .deck { font-size: 17px; color: var(--text-secondary); margin-bottom: 56px; max-width: 500px; line-height: 1.6; }
-  .section-center { text-align: center; }
-  .section-center .deck { margin-left: auto; margin-right: auto; }
-
-  /* Stats */
-  .stats { padding: 72px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  @media (max-width: 720px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 16px; } }
-  .stat { text-align: center; }
-  .stat .n { font-size: clamp(34px, 4.5vw, 48px); font-weight: 600; letter-spacing: -1px; line-height: 1; color: var(--text); }
-  .stat .suffix { font-weight: 550; color: var(--accent); }
-  .stat .l { font-size: 13px; color: var(--muted); margin-top: 10px; max-width: 180px; margin-left: auto; margin-right: auto; line-height: 1.5; }
 
   /* Product screenshot */
   .mockup {
     background: #0c0a09; border: 1px solid var(--border);
     border-radius: 14px; overflow: hidden; margin-top: 48px;
     box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 12px 40px -16px rgba(0,0,0,.12);
-    transition: box-shadow .3s ease, transform .3s ease;
   }
-  .mockup:hover { box-shadow: 0 2px 6px rgba(0,0,0,.05), 0 24px 60px -20px rgba(0,0,0,.18); transform: translateY(-2px); }
   .mockup .bar { background: #1c1917; padding: 11px 16px; display: flex; gap: 6px; border-bottom: 1px solid #292524; }
   .mockup .bar span { width: 10px; height: 10px; border-radius: 50%; background: #44403c; }
   .mockup .body { padding: 36px; display: grid; grid-template-columns: 200px 1fr; gap: 28px; }
@@ -132,9 +101,8 @@
 
   /* Feature list */
   .feat-list { display: flex; flex-direction: column; padding-top: 36px; }
-  .feat { display: flex; align-items: baseline; gap: 18px; padding: 18px 16px; border-bottom: 1px solid var(--border-light); border-radius: 8px; transition: background .2s ease, transform .2s ease; }
+  .feat { display: flex; align-items: baseline; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--border-light); }
   .feat:first-child { border-top: 1px solid var(--border-light); }
-  .feat:hover { background: var(--bg); transform: translateX(4px); }
   .feat .num { font-size: 12px; font-weight: 550; color: var(--muted); min-width: 24px; }
   .feat h3 { font-size: 16px; font-weight: 550; margin-bottom: 2px; }
   .feat p { font-size: 14px; color: var(--text-secondary); }
@@ -148,85 +116,24 @@
   .quote { border-left: 2px solid var(--border); padding: 6px 0 6px 20px; margin: 40px 0; }
   .quote p { font-size: 17px; color: var(--text-secondary); font-style: italic; }
 
-  /* Comparison table */
-  .compare-wrap { overflow-x: auto; margin-top: 40px; border-radius: 12px; }
-  .compare { width: 100%; min-width: 660px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
-  .compare th, .compare td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--border-light); vertical-align: top; }
-  .compare th:not(:first-child), .compare td:not(:first-child) { text-align: center; }
-  .compare thead th { font-size: 13px; font-weight: 550; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
-  .compare thead th:first-child { border-radius: 10px 0 0 0; }
-  .compare thead th:last-child { border-radius: 0 10px 0 0; }
-  .compare tbody tr:hover td { background: var(--border-light); }
-  .compare tbody tr:last-child td { border-bottom: none; }
-  .compare td:first-child { font-weight: 550; color: var(--text); width: 190px; }
-  .compare .yes { color: var(--accent); font-weight: 600; }
-  .compare .no { color: #d6d3d1; font-weight: 400; }
-  .compare .meh { color: var(--muted); }
-  .compare th.dopakit {
-    background: var(--accent); color: #fff; border-radius: 10px 10px 0 0 !important;
-    padding: 18px; position: relative;
-  }
-  .compare th.dopakit .badge { display: block; font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: .85; margin-top: 5px; }
-  .compare td.dopakit { background: rgba(29,78,216,.04); border-left: 1px solid rgba(29,78,216,.1); border-right: 1px solid rgba(29,78,216,.1); }
-  .compare tbody tr:hover td.dopakit { background: rgba(29,78,216,.09); }
-  .compare tbody tr:last-child td.dopakit { border-radius: 0 0 10px 10px; }
-  .compare .legend { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
-  .compare .legend b { color: var(--text-secondary); font-weight: 550; }
-
-  /* Testimonials */
-  .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-  @media (max-width: 820px) { .t-grid { grid-template-columns: 1fr; } }
-  .t-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    padding: 26px 24px; box-shadow: 0 1px 2px rgba(0,0,0,.03);
-    display: flex; flex-direction: column;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .t-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -14px rgba(0,0,0,.16); border-color: #dcdad7; }
-  .t-card .stars { color: #f59e0b; font-size: 13px; letter-spacing: 2.5px; margin-bottom: 14px; }
-  .t-card blockquote { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
-  .t-card .who { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-light); }
-  .t-card .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--text); color: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
-  .t-card .who .name { font-size: 14px; font-weight: 550; line-height: 1.3; }
-  .t-card .who .role { font-size: 12.5px; color: var(--muted); }
-  .t-card .who .verified { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--accent); font-weight: 550; margin-top: 2px; }
-
   /* Pricing */
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
   @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
-  .plan {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    padding: 32px 28px; box-shadow: 0 1px 2px rgba(0,0,0,.03); position: relative;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .plan:hover { transform: translateY(-3px); box-shadow: 0 14px 34px -16px rgba(0,0,0,.18); }
-  .plan.featured { border-color: rgba(29,78,216,.4); }
-  .plan .flag {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--accent); color: #fff; font-size: 11px; font-weight: 600;
-    padding: 4px 14px; border-radius: 999px; white-space: nowrap;
-  }
+  .plan { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px 28px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
   .plan h3 { font-size: 17px; font-weight: 550; }
   .plan .price { font-size: 38px; font-weight: 550; letter-spacing: -.8px; margin: 18px 0 4px; }
   .plan .price span { font-size: 15px; font-weight: 400; color: var(--muted); }
   .plan ul { list-style: none; margin: 22px 0 26px; }
   .plan ul li { padding: 5px 0; font-size: 14px; color: var(--text-secondary); }
-  .plan .buy {
-    display: block; width: 100%; text-align: center; background: var(--text); color: var(--bg);
-    padding: 12px; border-radius: 8px; font-size: 15px; font-weight: 550; text-decoration: none;
-    transition: transform .15s ease, box-shadow .2s ease, opacity .15s ease;
-  }
-  .plan .buy:hover { opacity: 1; transform: translateY(-1px); box-shadow: 0 8px 18px -8px rgba(0,0,0,.45); }
-  .plan.featured .buy { background: var(--accent); }
-  .plan.featured .buy:hover { box-shadow: 0 8px 20px -8px rgba(29,78,216,.55); }
+  .plan .buy { display: block; width: 100%; text-align: center; background: var(--text); color: var(--bg); padding: 12px; border-radius: 8px; font-size: 15px; font-weight: 550; text-decoration: none; transition: opacity .15s; }
+  .plan .buy:hover { opacity: .88; }
+  .guarantee { font-size: 14px; color: var(--text-secondary); text-align: center; margin-top: 26px; }
 
   /* FAQ */
   .faq details { padding: 18px 0; border-bottom: 1px solid var(--border-light); }
   .faq details:first-of-type { border-top: 1px solid var(--border-light); }
-  .faq summary { font-size: 16px; font-weight: 550; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color .15s; }
-  .faq summary:hover { color: var(--accent); }
-  .faq summary::after { content: '+'; font-size: 18px; color: var(--muted); font-weight: 400; transition: color .15s; }
-  .faq summary:hover::after { color: var(--accent); }
+  .faq summary { font-size: 16px; font-weight: 550; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq summary::after { content: '+'; font-size: 18px; color: var(--muted); font-weight: 400; }
   .faq details[open] summary::after { content: '\2212'; }
   .faq details p { font-size: 15px; color: var(--text-secondary); padding-top: 12px; line-height: 1.6; }
 
@@ -236,28 +143,13 @@
   .cta-block p { font-size: 17px; color: var(--text-secondary); margin: 12px 0 28px; }
 
   /* Footer */
-  .footer { background: var(--surface); border-top: 1px solid var(--border); padding: 64px 32px 36px; }
-  .footer-grid { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
-  @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-  .footer .logo { font-size: 17px; font-weight: 600; letter-spacing: -.2px; color: var(--text); text-decoration: none; }
-  .footer .brand p { font-size: 14px; color: var(--muted); margin-top: 14px; max-width: 260px; line-height: 1.65; }
-  .footer h4 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
-  .footer ul { list-style: none; }
-  .footer ul li { margin-bottom: 10px; font-size: 14px; color: var(--muted); }
-  .footer ul a { font-size: 14px; color: var(--text-secondary); text-decoration: none; transition: color .15s ease; }
-  .footer ul a:hover { color: var(--accent); }
-  .footer-bottom { max-width: 1040px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+  footer { text-align: center; padding: 44px 32px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+  footer a { color: var(--text); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.on { opacity: 1; transform: translateY(0); }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
 
   @media (max-width: 640px) {
     .container, .narrow { padding: 0 22px; }
@@ -265,7 +157,6 @@
     section { padding: 80px 0; }
     .hero { padding: 140px 0 80px; }
     .mockup .body { padding: 22px; }
-    .footer { padding: 48px 22px 28px; }
   }
 </style>
 </head>
@@ -273,36 +164,31 @@
 
 <nav class="nav" id="nav">
   <a href="/" class="logo">Dopakit</a>
-  <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="cta">Get the system</a>
+  <div class="links">
+    <a href="/about.html" class="link">About</a>
+    <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="cta">Get the system</a>
+  </div>
 </nav>
 
 <section class="hero">
   <div class="narrow">
     <div class="overline">For solopreneurs with ADHD</div>
-    <h1>A Notion system built for how your brain actually works.</h1>
-    <p>Ten templates and short guides that work with your dopamine, not against it. No rigid schedules. No shame. Just a system you'll actually use past week two.</p>
+    <h1>Your brain isn't broken. Your system is.</h1>
+    <p>Dopakit is a Notion workspace built for the way your brain actually works. Ten modules. Thirty minutes to set up. No rigid schedules. No shame. Just a system that sticks past week two.</p>
     <div class="row">
-      <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="btn">Get the system - $19</a>
+      <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="btn">Get Dopakit — €19</a>
       <a href="#inside" class="btn outline">See what's inside</a>
     </div>
-    <div class="note">Notion template. Printable PDF. Google Sheets tracker. 30-day refund.</div>
-    <div class="logos">
-      <p>Works with the tools you already use</p>
-      <div class="logo-row">
-        <span class="l1">Notion</span>
-        <span class="l2">Google Sheets</span>
-        <span class="l3">Gumroad</span>
-        <span class="l4">PDF</span>
-      </div>
-    </div>
+    <div class="note">Notion template · Printable PDF planner · Google Sheets tracker · 30-day money-back guarantee</div>
+    <div class="proof">Join 200+ freelancers, consultants, and creators who stopped fighting their brains.</div>
   </div>
 </section>
 
 <section class="alt" id="inside">
   <div class="container">
     <div class="label">The system</div>
-    <h2>Pre-built. Visual. Hard to overcomplicate.</h2>
-    <p class="deck">Duplicate the Notion workspace. Spend 30 minutes personalizing it. That's it. No blank page paralysis. No three-week detour designing your own dashboard from scratch.</p>
+    <h2>Everything pre-built. Nothing to design.</h2>
+    <p class="deck">Duplicate the workspace. Spend 30 minutes making it yours. Done. No blank pages. No three-week detour building a dashboard you'll abandon by Friday.</p>
     <div class="mockup">
       <div class="bar"><span></span><span></span><span></span></div>
       <div class="body">
@@ -315,12 +201,12 @@
           <a>Reset</a>
         </div>
         <div class="main">
-          <h4>Today - Thursday</h4>
-          <div class="sub">2 of 5 done <span class="tag">On track</span></div>
-          <div class="task"><span class="cb ok"></span> Review Q3 proposal draft</div>
-          <div class="task"><span class="cb ok"></span> Invoice client - Project Dawn</div>
-          <div class="task"><span class="cb"></span> Outline blog post on energy management</div>
-          <div class="task"><span class="cb"></span> Tax estimate for August</div>
+          <h4>Today — Thursday</h4>
+          <div class="sub">3 of 5 done <span class="tag">On track</span></div>
+          <div class="task"><span class="cb ok"></span> Send revised proposal to Meridian Co.</div>
+          <div class="task"><span class="cb ok"></span> Invoice client — Project Dawn</div>
+          <div class="task"><span class="cb"></span> Outline blog post (5 micro-steps)</div>
+          <div class="task"><span class="cb"></span> Set aside tax estimate for August</div>
           <div class="task"><span class="cb"></span> Follow up with Tuesday's leads</div>
           <div style="margin-top:10px;font-size:12px;color:#78716c;">Weekly review in 2 hours</div>
         </div>
@@ -329,42 +215,19 @@
   </div>
 </section>
 
-<section class="stats" id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="n"><span class="count" data-target="2400" data-decimals="0">0</span><span class="suffix">+</span></div>
-        <div class="l">solopreneurs running their business on Dopakit</div>
-      </div>
-      <div class="stat">
-        <div class="n"><span class="count" data-target="30" data-decimals="0">0</span><span class="suffix">min</span></div>
-        <div class="l">average setup time. Duplicate, personalize, done.</div>
-      </div>
-      <div class="stat">
-        <div class="n"><span class="count" data-target="4.8" data-decimals="1">0</span><span class="suffix">/5</span></div>
-        <div class="l">average rating from verified buyers</div>
-      </div>
-      <div class="stat">
-        <div class="n"><span class="count" data-target="10" data-decimals="0">0</span><span class="suffix"></span></div>
-        <div class="l">modules. One workspace, one review ritual.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="narrow">
     <div class="label">The problem</div>
-    <h2>Most productivity advice wasn't written for you.</h2>
-    <p class="deck">GTD, bullet journals, Pomodoro. Good systems. Built for people whose brains do what they're told.</p>
+    <h2>You didn't fail productivity. Productivity failed you.</h2>
+    <p class="deck">GTD. Bullet journals. Pomodoro. Five planners. They work — for brains that do what they're told. Yours doesn't. That's not a character flaw. It's a design flaw in the advice.</p>
     <ul class="pain-list">
-      <li>You've bought five planners. Used none past week two.</li>
-      <li>Every Monday morning you rebuild your "system" from scratch.</li>
-      <li>Client work gets finished because someone's waiting. Your own projects sit in a pile.</li>
-      <li>You're successful. But you're tired of fighting your own brain every day.</li>
+      <li>You've bought five planners. You've used none past week two.</li>
+      <li>Every Monday, you rebuild your system from scratch.</li>
+      <li>Client work gets done because someone's waiting. Your own projects sit in a pile.</li>
+      <li>You're successful. You're also exhausted from fighting your own brain.</li>
     </ul>
     <div class="quote">
-      <p>The fix isn't more discipline. It's a system that understands how your brain actually works.</p>
+      <p>The fix isn't more discipline. It's a system built for how your brain actually works.</p>
     </div>
     <p style="font-size:15px;color:var(--text-secondary);">Dopakit doesn't ask you to change. It meets you where you are.</p>
   </div>
@@ -375,135 +238,16 @@
     <div class="label">Everything inside</div>
     <h2>Ten modules. One system.</h2>
     <div class="feat-list">
-      <div class="feat reveal"><span class="num">01</span><div><h3>Dashboard</h3><p>Your day, week, and projects in one place. Not a blank page that stares back at you.</p></div></div>
-      <div class="feat reveal"><span class="num">02</span><div><h3>Task breakdowns</h3><p>"Write the proposal" becomes six small steps. Each one gives your brain a small hit of dopamine when you check it off.</p></div></div>
-      <div class="feat reveal"><span class="num">03</span><div><h3>Weekly planning</h3><p>Time blocks with buffer zones built in. A ten-minute Sunday ritual that actually holds up on Monday morning.</p></div></div>
-      <div class="feat reveal"><span class="num">04</span><div><h3>Body doubling</h3><p>A guide to virtual coworking sessions and accountability partnerships. Plus a log that proves you did the thing.</p></div></div>
-      <div class="feat reveal"><span class="num">05</span><div><h3>Client projects</h3><p>A visual pipeline for client work. Deadlines that don't sneak up. "Where was I?" notes for when you got pulled away mid-task.</p></div></div>
-      <div class="feat reveal"><span class="num">06</span><div><h3>Dopamine menu</h3><p>A list of quick rewards you earn by finishing tasks. Physical, sensory, or social. Your brain needs the carrot, not just the stick.</p></div></div>
-      <div class="feat reveal"><span class="num">07</span><div><h3>Money tracking</h3><p>A Google Sheet for irregular income. Know what's coming in, what's going out, and what to set aside for taxes.</p></div></div>
-      <div class="feat reveal"><span class="num">08</span><div><h3>Energy management</h3><p>Figure out when you're naturally productive. Match hard tasks to those windows. Protect deep work from the afternoon chaos.</p></div></div>
-      <div class="feat reveal"><span class="num">09</span><div><h3>Content system</h3><p>Write four posts in one session. Repurpose one idea across three platforms. Capture ideas before they derail what you're doing.</p></div></div>
-      <div class="feat reveal"><span class="num">10</span><div><h3>Reset protocols</h3><p>What to do on a bad brain day. An overwhelm procedure. A monthly review that asks "what worked?" instead of "why did you fail?"</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="compare">
-  <div class="container">
-    <div class="label">How it stacks up</div>
-    <h2>Dopakit vs. the alternatives you've already tried.</h2>
-    <p class="deck">You know the drill: build a system, use it for a week, feel bad, repeat. Here's how Dopakit compares to the usual suspects.</p>
-    <div class="compare-wrap">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="dopakit">Dopakit<span class="badge">Built for your brain</span></th>
-            <th>Generic Notion setup</th>
-            <th>Paper planner</th>
-            <th>Willpower</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Time to set up</td>
-            <td class="dopakit">~30 minutes</td>
-            <td>2-6 hours of building</td>
-            <td>5 minutes (day one)</td>
-            <td>A lifetime</td>
-          </tr>
-          <tr>
-            <td>Built around executive function</td>
-            <td class="dopakit"><span class="yes">✓</span></td>
-            <td><span class="no">✗</span></td>
-            <td><span class="no">✗</span></td>
-            <td><span class="no">✗</span></td>
-          </tr>
-          <tr>
-            <td>Tasks broken into small steps</td>
-            <td class="dopakit"><span class="yes">✓</span></td>
-            <td><span class="no">✗</span></td>
-            <td><span class="no">✗</span></td>
-            <td><span class="no">✗</span></td>
-          </tr>
-          <tr>
-            <td>Body doubling &amp; accountability</td>
-            <td class="dopakit"><span class="yes">✓</span></td>
-            <td><span class="meh">—</span></td>
-            <td><span class="meh">—</span></td>
-            <td><span class="meh">Maybe</span></td>
-          </tr>
-          <tr>
-            <td>Irregular income &amp; tax tracking</td>
-            <td class="dopakit"><span class="yes">✓</span></td>
-            <td><span class="meh">~</span></td>
-            <td><span class="meh">—</span></td>
-            <td><span class="meh">—</span></td>
-          </tr>
-          <tr>
-            <td>Refund when it doesn't stick</td>
-            <td class="dopakit">30 days</td>
-            <td>Rarely</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>One-time price</td>
-            <td class="dopakit">$19</td>
-            <td>$25-60 or hours of setup</td>
-            <td>$15-40 + the guilt</td>
-            <td>Burnout</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="legend"><b>✓</b> included &nbsp;&nbsp;<b>~</b> only if you build it yourself &nbsp;&nbsp;<b>—</b> not included</p>
-  </div>
-</section>
-
-<section class="alt" id="testimonials">
-  <div class="container section-center">
-    <div class="label">Reviews</div>
-    <h2>Skeptics welcome.</h2>
-    <p class="deck">Most buyers have tried (and abandoned) other systems before this one. Here's what they said after week two, week eight, and month six.</p>
-    <div class="t-grid">
-      <div class="t-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>I've bought three planners and a course about buying fewer planners. I opened Dopakit fully expecting to abandon it by Thursday. It's been nine weeks, and the weekly review is still the one thing I actually keep.</blockquote>
-        <div class="who">
-          <div class="avatar">MR</div>
-          <div>
-            <div class="name">Maya R.</div>
-            <div class="role">Freelance brand designer</div>
-            <div class="verified">✓ Verified buyer</div>
-          </div>
-        </div>
-      </div>
-      <div class="t-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Ship the landing page" sat on my list for two weeks. The task breakdowns turned it into five small boxes and my brain just... clicks them off. I don't fully understand why it works, but it works.</blockquote>
-        <div class="who">
-          <div class="avatar">DK</div>
-          <div>
-            <div class="name">Dan K.</div>
-            <div class="role">Solo software developer</div>
-            <div class="verified">✓ Verified buyer</div>
-          </div>
-        </div>
-      </div>
-      <div class="t-card reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>The money tracker alone paid for the bundle. I finally know what to set aside for taxes instead of staring at a spreadsheet in March, panicking. That's worth $19 by itself.</blockquote>
-        <div class="who">
-          <div class="avatar">PS</div>
-          <div>
-            <div class="name">Priya S.</div>
-            <div class="role">Content strategist</div>
-            <div class="verified">✓ Verified buyer</div>
-          </div>
-        </div>
-      </div>
+      <div class="feat reveal"><span class="num">01</span><div><h3>Dashboard</h3><p>Your day, your week, your business. One screen. No blank page staring back at you.</p></div></div>
+      <div class="feat reveal"><span class="num">02</span><div><h3>Task breakdowns</h3><p>"Write the proposal" becomes six small steps. Each checkmark is a win your brain can feel.</p></div></div>
+      <div class="feat reveal"><span class="num">03</span><div><h3>Weekly planning</h3><p>Time blocks with buffer built in. A Sunday ritual that still holds up on Monday.</p></div></div>
+      <div class="feat reveal"><span class="num">04</span><div><h3>Body doubling</h3><p>Virtual coworking, accountability partners, and a log that proves you did the thing.</p></div></div>
+      <div class="feat reveal"><span class="num">05</span><div><h3>Client projects</h3><p>A visual pipeline. Deadlines you can see coming. "Where was I?" notes for interrupted days.</p></div></div>
+      <div class="feat reveal"><span class="num">06</span><div><h3>Dopamine menu</h3><p>Finish a task. Earn a reward. Your brain gets the carrot, not just the stick.</p></div></div>
+      <div class="feat reveal"><span class="num">07</span><div><h3>Money tracking</h3><p>A Google Sheet built for irregular income. Know what's coming in. Set aside taxes as you go.</p></div></div>
+      <div class="feat reveal"><span class="num">08</span><div><h3>Energy management</h3><p>Match hard tasks to your natural peaks. Protect deep work from the afternoon slump.</p></div></div>
+      <div class="feat reveal"><span class="num">09</span><div><h3>Content system</h3><p>Write four posts in one session. Turn one idea into a week of content.</p></div></div>
+      <div class="feat reveal"><span class="num">10</span><div><h3>Reset protocols</h3><p>Bad brain day? There's a protocol. Overwhelmed? There's a procedure. No shame required.</p></div></div>
     </div>
   </div>
 </section>
@@ -513,48 +257,52 @@
     <div class="label">Pricing</div>
     <h2>Pay once. Yours forever.</h2>
     <div class="pricing-grid">
-      <div class="plan featured">
-        <div class="flag">Most popular</div>
+      <div class="plan">
         <h3>Complete bundle</h3>
-        <div class="price">$19<span> USD</span></div>
+        <div class="price">€19<span> EUR</span></div>
         <ul>
-          <li>Full Notion workspace with 10 modules</li>
+          <li>Full Notion workspace — 10 modules</li>
           <li>Printable PDF planner (A4 + US Letter)</li>
-          <li>Google Sheets money tracker</li>
+          <li>Google Sheets money tracker with tax estimator</li>
           <li>Body doubling guide (PDF)</li>
-          <li>Lifetime updates</li>
+          <li>Lifetime updates, included</li>
         </ul>
-        <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="buy">Buy on Gumroad</a>
+        <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="buy">Get the bundle</a>
       </div>
       <div class="plan">
         <h3>PDF only</h3>
-        <div class="price">$12<span> USD</span></div>
+        <div class="price">€12<span> EUR</span></div>
         <ul>
           <li>Printable planner</li>
           <li>Money tracker (PDF)</li>
           <li>Body doubling guide</li>
-          <li>Lifetime updates</li>
+          <li>Lifetime updates, included</li>
         </ul>
-        <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="buy">Buy on Gumroad</a>
+        <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="buy">Get the PDF</a>
       </div>
     </div>
+    <p class="guarantee">30-day money-back guarantee. If it doesn't stick, one email gets you a full refund. You've already paid for enough things that didn't.</p>
   </div>
 </section>
 
-<section class="alt faq" id="faq">
+<section class="alt faq">
   <div class="narrow">
     <div class="label">Questions</div>
     <details>
-      <summary>I tried Notion before and abandoned it. Why is this different?</summary>
-      <p>Most Notion setups are blank canvases. Dopakit comes pre-built. You duplicate, spend 30 minutes personalizing, and get back to work. No designing from scratch.</p>
+      <summary>I've abandoned Notion before. Why is this different?</summary>
+      <p>Most Notion setups are blank canvases. Dopakit arrives fully built. You duplicate it, personalize it in 30 minutes, and get back to work. Nothing to design. Nothing to abandon.</p>
     </details>
     <details>
       <summary>Do I need an ADHD diagnosis?</summary>
-      <p>No. If you've been bouncing off standard productivity advice for years, this was built for your brain.</p>
+      <p>No. If standard productivity advice has bounced off you for years, this was built for your brain.</p>
+    </details>
+    <details>
+      <summary>How long does setup take?</summary>
+      <p>About 30 minutes. Duplicate the workspace, drop in your projects and clients, and start your first week. The included quick-start guide walks you through it.</p>
     </details>
     <details>
       <summary>What's the refund policy?</summary>
-      <p>Thirty days. Email us. Full refund. You've already bought enough things that didn't stick.</p>
+      <p>Thirty days. One email. Full refund. You've already bought enough things that didn't stick.</p>
     </details>
   </div>
 </section>
@@ -562,84 +310,26 @@
 <section class="cta-block">
   <div class="narrow">
     <h2>Stop fighting your brain.</h2>
-    <p>A system that works with your dopamine, not against it.</p>
-    <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="btn">Get Dopakit - $19</a>
+    <p>Start working with it. One system. Thirty-minute setup. Thirty-day guarantee.</p>
+    <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true" class="btn">Get Dopakit — €19</a>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="brand">
-      <a href="/" class="logo">Dopakit</a>
-      <p>An ADHD-friendly productivity system for people who work for themselves. Ten templates, one workspace, zero guilt.</p>
-    </div>
-    <div>
-      <h4>Product</h4>
-      <ul>
-        <li><a href="#inside">What's inside</a></li>
-        <li><a href="#compare">How it compares</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true">Buy on Gumroad</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="#stats">By the numbers</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#inside">Setup guide</a></li>
-        <li><a href="mailto:hello@dopakit.com">hello@dopakit.com</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms</a></li>
-        <li><a href="#">Refund policy</a></li>
-        <li>Not medical advice</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Dopakit. All rights reserved.</span>
-    <span>Made with care for brains like ours.</span>
+<footer>
+  <div class="narrow">
+    <p>Dopakit. A productivity system for ADHD solopreneurs, built by one.</p>
+    <p style="margin-top:8px">2026 &middot; <a href="/about.html">About</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p style="margin-top:8px;font-size:12px">Not medical advice.</p>
   </div>
 </footer>
 
 <script>
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10));
-
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-}, { threshold: 0.12 });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// Staggered reveal for lists of cards
-const stagger = document.querySelectorAll('.feat-list .reveal, .t-grid .reveal');
-stagger.forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.06 + 's'; });
-
-// Animated stats counters
-const fmt = (v, d) => v.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const runCounter = el => {
-  const target = parseFloat(el.dataset.target);
-  const dec = parseInt(el.dataset.decimals || '0', 10);
-  if (reduceMotion) { el.textContent = fmt(target, dec); return; }
-  const dur = 1500, t0 = performance.now();
-  const tick = now => {
-    const p = Math.min((now - t0) / dur, 1);
-    el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)), dec);
-    if (p < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-};
-const sobs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { runCounter(e.target); sobs.unobserve(e.target); } });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count').forEach(el => sobs.observe(el));
 </script>
 </body>
 </html>
