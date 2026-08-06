@@ -3,262 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dopakit — ADHD-Friendly Productivity for Solopreneurs</title>
-<meta name="description" content="A Notion + PDF system built for solopreneurs with ADHD. No rigid schedules. No shame. Just a system that works WITH your dopamine, not against it.">
-<meta property="og:title" content="Dopakit — ADHD-Friendly Solopreneur Productivity">
-<meta property="og:description" content="The first productivity system designed specifically for solopreneurs with ADHD brains.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+<title>Dopakit — A productivity system for ADHD solopreneurs</title>
+<meta name="description" content="Notion templates and guides built for how your brain actually works.">
 <style>
-:root {
-  --bg: #0a0a0f;
-  --card: #111118;
-  --border: #1e1e2e;
-  --text: #e0e0e8;
-  --muted: #8888a0;
-  --accent: #a78bfa;
-  --accent2: #7dd3fc;
-  --green: #4ade80;
-  --pink: #f472b6;
-  --orange: #fb923c;
-  --gradient: linear-gradient(135deg, var(--accent), var(--accent2));
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-section { padding: 100px 0; }
+  :root { --bg: #fafaf9; --card: #fff; --border: #e7e5e4; --text: #1c1917; --muted: #78716c; --accent: #2563eb; --green: #16a34a; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0c0a09; --card: #1c1917; --border: #292524; --text: #e7e5e4; --muted: #a8a29e; --accent: #3b82f6; --green: #22c55e; } }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .w { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-/* Nav */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-nav .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-nav .cta { background: var(--accent); color: #fff; padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: transform 0.15s; }
-nav .cta:hover { transform: scale(1.03); }
+  header { padding: 80px 0 48px; text-align: center; }
+  header h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  header p { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 32px; }
+  .btn { display: inline-block; background: var(--text); color: var(--bg); padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
+  .btn:hover { opacity: 0.85; }
 
-/* Hero */
-.hero { padding: 160px 0 80px; text-align: center; }
-.hero .badge { display: inline-block; background: #1a1a2e; color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; margin-bottom: 24px; border: 1px solid #2a2a3e; }
-.hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
-.hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero p { font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto 32px; }
-.hero .btn { display: inline-block; background: var(--gradient); color: #fff; padding: 16px 40px; border-radius: 12px; font-size: 18px; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(167,139,250,0.3); }
-.hero .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(167,139,250,0.4); }
-.hero .price { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  section { padding: 48px 0; }
 
-/* Problem */
-.problem { background: var(--card); }
-.problem h2 { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 50px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.card-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: border-color 0.2s; }
-.card-item:hover { border-color: var(--accent); }
-.card-item .icon { font-size: 28px; margin-bottom: 14px; }
-.card-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-.card-item p { font-size: 14px; color: var(--muted); }
+  .problem { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .problem .w { max-width: 640px; }
+  .problem p { font-size: 17px; color: var(--muted); margin-bottom: 20px; }
+  .problem p strong { color: var(--text); }
 
-/* Solution */
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px; }
-.feature { display: flex; gap: 14px; padding: 16px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); }
-.feature .emoji { font-size: 24px; flex-shrink: 0; }
-.feature h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-.feature p { font-size: 13px; color: var(--muted); }
+  .modules { padding: 64px 0; }
+  .modules .w { max-width: 640px; }
+  .modules h2 { font-size: 24px; font-weight: 700; margin-bottom: 36px; }
+  .mod { padding: 20px 0; border-bottom: 1px solid var(--border); display: flex; gap: 20px; align-items: baseline; }
+  .mod:first-of-type { border-top: 1px solid var(--border); }
+  .mod .n { font-size: 13px; font-weight: 500; color: var(--muted); min-width: 28px; }
+  .mod h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .mod p { font-size: 15px; color: var(--muted); }
 
-/* Modules */
-.modules { background: var(--card); }
-.modules h2 { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 12px; }
-.modules .sub { text-align: center; color: var(--muted); margin-bottom: 50px; }
-.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
-.module { display: flex; align-items: flex-start; gap: 14px; padding: 18px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); }
-.module .num { font-size: 14px; font-weight: 700; color: var(--accent); min-width: 24px; padding-top: 2px; }
-.module h4 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
-.module span { font-size: 13px; color: var(--muted); }
+  .pricing { padding: 64px 0; text-align: center; }
+  .pricing .w { max-width: 480px; }
+  .pricing h2 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+  .plan { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 16px; text-align: left; }
+  .plan h3 { font-size: 18px; font-weight: 600; }
+  .plan .price { font-size: 32px; font-weight: 700; margin: 12px 0; }
+  .plan .price span { font-size: 16px; font-weight: 400; color: var(--muted); }
+  .plan ul { list-style: none; margin: 20px 0 24px; }
+  .plan ul li { padding: 4px 0; font-size: 14px; color: var(--muted); }
+  .plan ul li::before { content: "— "; }
+  .plan .buy { display: block; width: 100%; text-align: center; background: var(--text); color: var(--bg); padding: 12px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .plan .buy:hover { opacity: 0.85; }
 
-/* Pricing */
-.pricing-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 650px; margin: 40px auto 0; }
-.price-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 32px 24px; text-align: center; }
-.price-card.popular { border-color: var(--accent); border-width: 2px; position: relative; }
-.price-card.popular::before { content: "BEST VALUE"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 3px 14px; border-radius: 10px; font-size: 11px; font-weight: 700; }
-.price-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
-.price-card .amount { font-size: 40px; font-weight: 800; margin: 8px 0; }
-.price-card .amount small { font-size: 16px; color: var(--muted); font-weight: 400; }
-.price-card ul { list-style: none; text-align: left; margin: 20px 0; }
-.price-card ul li { padding: 6px 0; font-size: 14px; color: var(--muted); }
-.price-card ul li::before { content: "✓ "; color: var(--green); font-weight: 700; }
-.price-card .buy { display: block; background: var(--accent); color: #fff; padding: 12px; border-radius: 10px; font-weight: 700; text-decoration: none; margin-top: 12px; transition: transform 0.15s; }
-.price-card .buy:hover { transform: scale(1.02); }
-.price-card .buy.secondary { background: var(--border); }
+  .faq { padding: 48px 0; }
+  .faq .w { max-width: 640px; }
+  .faq h2 { font-size: 24px; font-weight: 700; margin-bottom: 28px; }
+  .faq details { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .faq details:first-of-type { border-top: 1px solid var(--border); }
+  .faq summary { font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
+  .faq summary::after { content: "+"; font-size: 18px; color: var(--muted); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { font-size: 15px; color: var(--muted); padding-top: 12px; }
 
-/* FAQ */
-.faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 10px; }
-.faq-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-.faq-item p { font-size: 14px; color: var(--muted); }
+  footer { text-align: center; padding: 48px 24px; font-size: 14px; color: var(--muted); }
+  footer a { color: var(--text); }
 
-/* CTA */
-.cta-section { text-align: center; }
-.cta-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
-.cta-section p { color: var(--muted); margin-bottom: 28px; }
-
-/* Footer */
-footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
-footer a { color: var(--accent); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
-@media (max-width: 600px) {
-  section { padding: 60px 0; }
-  .hero { padding: 120px 0 60px; }
-  .hero h1 { font-size: 30px; }
-}
+  @media (max-width: 600px) { header h1 { font-size: 28px; } header p { font-size: 16px; } }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">dopakit</div>
-  <a href="#pricing" class="cta">Get the System — $19</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="badge">🧠 Built for ADHD brains</div>
-    <h1>Your Brain Isn't Broken.<br><span>Your Productivity System Is.</span></h1>
-    <p>A Notion + PDF system designed specifically for solopreneurs with ADHD. No rigid schedules. No shame. Just a system that works WITH your dopamine, not against it.</p>
-    <a href="#pricing" class="btn">Get the System — $19</a>
-    <div class="price">Instant access · Lifetime updates · 30-day guarantee</div>
+<header>
+  <div class="w">
+    <h1>A productivity system for ADHD solopreneurs.</h1>
+    <p>Notion templates and short guides built for how your brain actually works — not how a productivity guru says it should.</p>
+    <a href="#buy" class="btn">Get the system — $19</a>
   </div>
-</section>
+</header>
 
-<!-- PROBLEM -->
 <section class="problem">
-  <div class="container">
-    <h2>You've Tried Everything. It All Failed.</h2>
-    <div class="grid-3">
-      <div class="card-item">
-        <div class="icon">📚</div>
-        <h3>Bought 5 planners. Used none past week 2.</h3>
-        <p>Standard planners are built for neurotypical brains. Your dopamine system works differently — and that's okay.</p>
-      </div>
-      <div class="card-item">
-        <div class="icon">🔄</div>
-        <h3>Every Monday you rebuild your "system" from scratch.</h3>
-        <p>GTD, Bullet Journal, Pomodoro — great for others. Terrible for your brain. You need something different.</p>
-      </div>
-      <div class="card-item">
-        <div class="icon">😮‍💨</div>
-        <h3>Client work gets done. Your own business? Chaos.</h3>
-        <p>You're successful but exhausted from fighting your own brain. The problem isn't motivation — it's the tool.</p>
-      </div>
-    </div>
+  <div class="w">
+    <p><strong>You know the loop.</strong> Buy a planner. Use it for four days. Abandon it. Find a new one. Repeat. Each time you think <em>this one</em> will be different. It isn't.</p>
+    <p>The problem isn't you. Standard productivity advice was written by people who don't have ADHD. Their brains do what they're told. Yours needs a different approach.</p>
+    <p>Dopakit was built around one idea: <strong>work with your dopamine, not against it.</strong></p>
   </div>
 </section>
 
-<!-- SOLUTION -->
-<section>
-  <div class="container">
-    <h2 style="text-align:center;font-size:32px;font-weight:700;margin-bottom:12px;">Meet the First System That Understands Dopamine</h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:40px;">Built from the ground up for solopreneurs with ADHD — by someone who gets it.</p>
-    <div class="features">
-      <div class="feature"><span class="emoji">🧠</span><div><h4>Built for YOUR brain</h4><p>Micro-task breakdown, dopamine menus, energy matching — not "just try harder."</p></div></div>
-      <div class="feature"><span class="emoji">📊</span><div><h4>Visual & flexible</h4><p>Notion dashboard you can SEE, not a wall of text. Drag, drop, customize.</p></div></div>
-      <div class="feature"><span class="emoji">🤝</span><div><h4>Accountability baked in</h4><p>Body doubling guides, celebration logs, public commitment frameworks.</p></div></div>
-      <div class="feature"><span class="emoji">⚡</span><div><h4>Dopamine-aware design</h4><p>Progress bars, quick wins, reward menus — your brain's chemistry, respected.</p></div></div>
-      <div class="feature"><span class="emoji">💼</span><div><h4>Solopreneur-specific</h4><p>Client management, irregular income tracking, project pipelines — not student planners.</p></div></div>
-      <div class="feature"><span class="emoji">🔁</span><div><h4>Reset-friendly</h4><p>Bad brain day? Overwhelmed? Built-in recovery protocols. No shame, just restart.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MODULES -->
 <section class="modules">
-  <div class="container">
-    <h2>Everything Inside Dopakit</h2>
-    <p class="sub">10 modules. One complete system. Zero fighting your brain.</p>
-    <div class="module-grid">
-      <div class="module"><span class="num">01</span><div><h4>The Dopamine Dashboard</h4><span>Central command center — visual, flexible, ADHD-friendly</span></div></div>
-      <div class="module"><span class="num">02</span><div><h4>Micro-Task Breakdown System</h4><span>Turn "write proposal" into 8 dopamine-friendly micro-steps</span></div></div>
-      <div class="module"><span class="num">03</span><div><h4>Weekly ADHD Planner</h4><span>Not rigid hours. Time blocks + buffer zones + focus sprints</span></div></div>
-      <div class="module"><span class="num">04</span><div><h4>Body Doubling & Accountability</h4><span>Virtual body doubling tracker + accountability partner system</span></div></div>
-      <div class="module"><span class="num">05</span><div><h4>Client Project Manager</h4><span>Visual pipeline, deadline warnings, "where was I?" resume notes</span></div></div>
-      <div class="module"><span class="num">06</span><div><h4>The Dopamine Menu</h4><span>Quick dopamine hits — earn rewards by completing micro-tasks</span></div></div>
-      <div class="module"><span class="num">07</span><div><h4>Income & Finance Tracker</h4><span>Irregular income visualizer, tax estimator, profit/loss dashboard</span></div></div>
-      <div class="module"><span class="num">08</span><div><h4>Energy Management System</h4><span>Chronotype assessment, task-to-energy matching, decision fatigue minimizer</span></div></div>
-      <div class="module"><span class="num">09</span><div><h4>Content & Marketing System</h4><span>Batching templates, repurpose checklists, idea parking lot</span></div></div>
-      <div class="module"><span class="num">10</span><div><h4>Reset & Recovery Toolkit</h4><span>Bad brain day protocol, overwhelm emergency procedure, monthly review</span></div></div>
+  <div class="w">
+    <h2>What's inside</h2>
+    <div class="mod"><span class="n">01</span><div><h3>The Dashboard</h3><p>Not a blank page. A pre-built Notion workspace with your day, week, and projects in one place. Visual, drag-and-drop, impossible to overcomplicate.</p></div></div>
+    <div class="mod"><span class="n">02</span><div><h3>Task Breakdowns</h3><p>Turns "write the proposal" into five small steps. Each one gives you a hit of dopamine when checked off. Pre-built templates for common solopreneur workflows.</p></div></div>
+    <div class="mod"><span class="n">03</span><div><h3>Weekly Planning</h3><p>Not an hourly grid (you'll ignore it). Time blocks with buffer zones. Focus sprints. A Sunday setup ritual that takes 10 minutes and actually works on Monday.</p></div></div>
+    <div class="mod"><span class="n">04</span><div><h3>Body Doubling Guide</h3><p>How to set up virtual coworking sessions. An accountability partner framework. A "did the thing" log because your brain needs to see the wins.</p></div></div>
+    <div class="mod"><span class="n">05</span><div><h3>Client Projects</h3><p>A visual pipeline for client work. Deadlines that don't sneak up on you. "Where was I?" notes for when you got pulled away mid-task.</p></div></div>
+    <div class="mod"><span class="n">06</span><div><h3>Dopamine Menu</h3><p>A list of quick, healthy dopamine hits. Physical, sensory, social, rewarding. Earn them by finishing tasks. Your brain needs the carrot, not just the stick.</p></div></div>
+    <div class="mod"><span class="n">07</span><div><h3>Money Tracking</h3><p>A Google Sheet for irregular income. Know what you made, what's coming, and how much to set aside for taxes. Built for freelance reality, not payroll.</p></div></div>
+    <div class="mod"><span class="n">08</span><div><h3>Energy Management</h3><p>Figure out when you're naturally productive. Match hard tasks to high-energy windows. Protect deep work from the chaos.</p></div></div>
+    <div class="mod"><span class="n">09</span><div><h3>Content System</h3><p>Write four posts in one hyperfocus session. Repurpose one idea across platforms. A parking lot for ideas so they don't derail what you're doing now.</p></div></div>
+    <div class="mod"><span class="n">10</span><div><h3>Reset Protocols</h3><p>What to do on a bad brain day. An overwhelm emergency procedure. A monthly review that asks "what worked" instead of "why did you fail."</p></div></div>
+  </div>
+</section>
+
+<section class="pricing" id="buy">
+  <div class="w">
+    <h2>Get the system</h2>
+    <div class="plan">
+      <h3>Complete Bundle</h3>
+      <div class="price">$19 <span>USD</span></div>
+      <ul>
+        <li>Full Notion workspace (duplicate & customize)</li>
+        <li>Printable PDF planner (A4 + US Letter)</li>
+        <li>Google Sheets money tracker</li>
+        <li>Body doubling guide (PDF)</li>
+        <li>Lifetime updates, 30-day refund</li>
+      </ul>
+      <a href="#" class="buy">Buy on Gumroad — $19</a>
+    </div>
+    <div class="plan">
+      <h3>PDF Only</h3>
+      <div class="price">$12 <span>USD</span></div>
+      <ul>
+        <li>Printable planner</li>
+        <li>Money tracker (PDF)</li>
+        <li>Body doubling guide</li>
+        <li>Lifetime updates, 30-day refund</li>
+      </ul>
+      <a href="#" class="buy">Buy on Gumroad — $12</a>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="container">
-    <h2 style="text-align:center;font-size:32px;font-weight:700;margin-bottom:12px;">Simple Pricing</h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:10px;">One-time payment. Lifetime access. 30-day guarantee.</p>
-    <div class="pricing-cols">
-      <div class="price-card">
-        <h3>PDF Only</h3>
-        <div class="amount">$12<small> USD</small></div>
-        <ul>
-          <li>Printable ADHD planner (A4 + US Letter)</li>
-          <li>Finance tracker (PDF)</li>
-          <li>Body doubling guide</li>
-          <li>Lifetime updates</li>
-        </ul>
-        <a href="#" class="buy secondary">Buy PDF — $12</a>
-      </div>
-      <div class="price-card popular">
-        <h3>Complete Bundle</h3>
-        <div class="amount">$19<small> USD</small></div>
-        <ul>
-          <li>Full Notion template</li>
-          <li>Printable PDF planner</li>
-          <li>Google Sheets finance tracker</li>
-          <li>4 Bonus guides</li>
-          <li>Lifetime updates</li>
-        </ul>
-        <a href="#" class="buy">Get Bundle — $19</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section style="background:var(--card);">
-  <div class="container">
-    <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:40px;">Questions You Might Have</h2>
-    <div class="faq-item"><h4>I've tried Notion before and abandoned it. Why is this different?</h4><p>Most Notion setups are blank canvases that overwhelm ADHD brains. Dopakit comes pre-built with templates, examples, and a quick-start guide. You spend 30 minutes setting up, not 3 weeks designing.</p></div>
-    <div class="faq-item"><h4>What if I don't have an official ADHD diagnosis?</h4><p>You don't need one. If standard productivity advice has never worked for you and you resonate with the struggles we describe, this system is for you.</p></div>
-    <div class="faq-item"><h4>How long does setup take?</h4><p>About 30 minutes for the basics. You can go deeper as you use it. The Quick Start Guide walks you through step by step.</p></div>
-    <div class="faq-item"><h4>Can I use this alongside my existing tools?</h4><p>Yes. Dopakit plays well with Google Calendar, Todoist, Gmail, and most tools. It's your central command, not a walled garden.</p></div>
-    <div class="faq-item"><h4>What's your refund policy?</h4><p>30 days, no questions asked. If it doesn't work for your brain, you get your money back. We've all bought enough things that didn't stick.</p></div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2>Stop Fighting Your Brain.<br>Start Working With It.</h2>
-    <p>Join solopreneurs who finally found a system that sticks.</p>
-    <a href="#pricing" class="btn">Get Dopakit — $19</a>
-    <div class="price" style="margin-top:16px;">🔒 Instant access · Lifetime updates · 30-day guarantee</div>
+<section class="faq">
+  <div class="w">
+    <h2>Questions</h2>
+    <details><summary>I tried Notion before and abandoned it. Why is this different?</summary><p>Most Notion setups are blank canvases. Dopakit is pre-built. You spend 30 minutes customizing, not three weeks designing a system from scratch.</p></details>
+    <details><summary>Do I need an ADHD diagnosis?</summary><p>No. If standard productivity advice has never worked for you, this is for you.</p></details>
+    <details><summary>How does the refund work?</summary><p>Email within 30 days. Full refund, no questions. We've all bought things that didn't stick.</p></details>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <p><strong>dopakit</strong> — ADHD-friendly productivity for solopreneurs.</p>
-    <p style="margin-top:8px;">© 2026 Dopakit · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
-    <p style="margin-top:8px;font-size:12px;">Created with AI assistance · Not medical advice · For educational and productivity purposes only</p>
+  <div class="w">
+    <p>Dopakit · ADHD-friendly productivity for people who work for themselves.</p>
+    <p style="margin-top:12px;font-size:13px;">© 2026 · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    <p style="margin-top:8px;font-size:12px;color:var(--muted);">Created with AI assistance. Not medical advice.</p>
   </div>
 </footer>
 
