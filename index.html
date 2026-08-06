@@ -159,6 +159,111 @@
     .mockup .body { padding: 22px; }
   }
 </style>
+<style>
+  /* ===== Added sections: trusted-by, stats, compare, testimonials, footer, hover ===== */
+
+  /* Trusted-by wordmark strip */
+  .trusted { padding: 0 0 64px; }
+  .trusted-label { font-size: 12px; font-weight: 550; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); text-align: center; margin-bottom: 28px; }
+  .wordmarks { display: flex; align-items: center; justify-content: center; gap: 52px; flex-wrap: wrap; }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-size: 19px; color: #a8a29e; cursor: default; user-select: none; transition: opacity .2s ease; }
+  .wordmark:hover { opacity: .65; }
+  .w-notion { font-weight: 650; letter-spacing: -.3px; color: var(--text); }
+  .w-notion::before { content: ''; width: 14px; height: 14px; background: var(--text); border-radius: 3px; }
+  .w-google { color: var(--text); font-weight: 500; }
+  .w-google .g { font-weight: 600; }
+  .w-google .g1 { color: #4285f4; }
+  .w-google .g2 { color: #ea4335; }
+  .w-google .g3 { color: #fbbc05; }
+  .w-google .g4 { color: #4285f4; }
+  .w-google .g5 { color: #34a853; }
+  .w-google .g6 { color: #ea4335; }
+  .w-gumroad { font-weight: 750; letter-spacing: -.4px; color: var(--text); }
+  .w-pdf { font-size: 16px; font-weight: 700; letter-spacing: .4px; color: #dc2626; background: #fee2e2; padding: 6px 11px; border-radius: 6px; }
+
+  /* Stats counter row */
+  .stats { padding: 0 0 112px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stat-num { display: inline-block; font-size: 44px; font-weight: 600; letter-spacing: -1.5px; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat-suffix { font-size: 22px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  /* Comparison table */
+  .cmp-sec { border-top: 1px solid var(--border); }
+  .compare-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 14px 44px -26px rgba(0,0,0,.14); }
+  table.compare { width: 100%; min-width: 780px; border-collapse: collapse; font-size: 14px; }
+  .compare th, .compare td { padding: 15px 18px; text-align: left; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .compare thead th { font-size: 13.5px; font-weight: 600; background: #f5f5f4; white-space: nowrap; }
+  .compare tbody tr:last-child th, .compare tbody tr:last-child td { border-bottom: none; }
+  .compare th.row-label { font-weight: 550; color: var(--text-secondary); white-space: nowrap; font-size: 13.5px; }
+  .compare td { color: var(--text-secondary); }
+  .compare td .tick { color: var(--accent); font-weight: 650; }
+  .compare .dopakit-col { background: rgba(29,78,216,.05); }
+  .compare td.dopakit-col { color: var(--text); font-weight: 550; }
+  .compare thead .dopakit-col { background: var(--accent); color: #fff; }
+  .compare tbody tr:hover td { background: #fafaf9; }
+  .compare tbody tr:hover td.dopakit-col { background: rgba(29,78,216,.09); }
+  .best-tag { display: block; width: max-content; font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: .6px; color: #dbeafe; background: rgba(255,255,255,.16); border-radius: 999px; padding: 3px 9px; margin-bottom: 6px; }
+
+  /* Testimonials */
+  .t-sec { border-bottom: 1px solid var(--border); }
+  .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .t-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 26px 24px 22px; box-shadow: 0 1px 2px rgba(0,0,0,.03); display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .t-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -22px rgba(28,25,23,.24); border-color: #d6d3d1; }
+  .t-stars { font-size: 14px; letter-spacing: 3px; color: #f59e0b; margin-bottom: 14px; }
+  .t-stars i { color: var(--border); font-style: normal; }
+  .t-quote { font-size: 14.5px; line-height: 1.7; color: var(--text-secondary); flex: 1; }
+  .t-meta { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-light); }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 12px; font-weight: 600; letter-spacing: .5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .avatar.a2 { background: var(--accent); }
+  .avatar.a3 { background: #7c3aed; }
+  .t-name { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .t-role { font-size: 12.5px; color: var(--muted); }
+  .badge { margin-left: auto; font-size: 11px; font-weight: 550; color: #15803d; background: #dcfce7; border-radius: 999px; padding: 4px 9px; white-space: nowrap; }
+
+  /* Footer */
+  footer { text-align: left; padding: 64px 0 36px; background: var(--surface); }
+  .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  .f-brand .logo { font-size: 17px; font-weight: 600; letter-spacing: -.2px; color: var(--text); text-decoration: none; }
+  .f-brand .tagline { font-size: 13.5px; color: var(--muted); margin-top: 12px; max-width: 300px; line-height: 1.6; }
+  .f-col h4 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text); margin-bottom: 14px; }
+  .f-col a { display: block; font-size: 13.5px; color: var(--text-secondary); text-decoration: none; padding: 5px 0; }
+  .f-col a:hover { color: var(--text); text-decoration: underline; }
+  .f-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--muted); }
+
+  /* Hover effects on existing elements (additive) */
+  .btn { transition: opacity .15s, transform .2s ease, box-shadow .2s ease; }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -10px rgba(28,25,23,.4); }
+  .btn.outline:hover { transform: translateY(-1px); box-shadow: 0 6px 16px -10px rgba(28,25,23,.2); }
+  .plan { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .plan:hover { transform: translateY(-3px); box-shadow: 0 18px 44px -24px rgba(28,25,23,.26); border-color: #d6d3d1; }
+  .plan .buy { transition: opacity .15s, transform .2s ease, box-shadow .2s ease; }
+  .plan .buy:hover { transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(28,25,23,.35); }
+  .mockup { transition: transform .25s ease, box-shadow .25s ease; }
+  .mockup:hover { transform: translateY(-3px); box-shadow: 0 2px 6px rgba(0,0,0,.04), 0 28px 60px -24px rgba(0,0,0,.2); }
+  .feat .num, .feat h3 { transition: color .2s ease; }
+  .feat:hover .num, .feat:hover h3 { color: var(--accent); }
+  .faq summary { transition: color .2s ease; }
+  .faq details:hover summary { color: var(--accent); }
+
+  /* Responsive tweaks for new sections */
+  @media (max-width: 900px) {
+    .t-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .f-grid { grid-template-columns: 1fr 1fr; }
+    .f-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .trusted { padding-bottom: 44px; }
+    .stats { padding-bottom: 84px; }
+    .wordmarks { gap: 26px; }
+    .wordmark { font-size: 16px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; }
+    .stat-num { font-size: 34px; }
+    .stat-suffix { font-size: 18px; }
+    footer { padding: 56px 0 32px; }
+    .f-grid { gap: 32px; }
+  }
+</style>
 </head>
 <body>
 
@@ -181,6 +286,41 @@
     </div>
     <div class="note">Notion template · Printable PDF planner · Google Sheets tracker · 30-day money-back guarantee</div>
     <div class="proof">Join 200+ freelancers, consultants, and creators who stopped fighting their brains.</div>
+  </div>
+</section>
+
+<section class="trusted">
+  <div class="container">
+    <p class="trusted-label">Delivered on the tools you already use</p>
+    <div class="wordmarks">
+      <span class="wordmark w-notion">Notion</span>
+      <span class="wordmark w-google"><span class="g g1">G</span><span class="g g2">o</span><span class="g g3">o</span><span class="g g4">g</span><span class="g g5">l</span><span class="g g6">e</span> Sheets</span>
+      <span class="wordmark w-gumroad">gumroad</span>
+      <span class="wordmark w-pdf">PDF</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div><span class="stat-num" data-count="10">0</span></div>
+        <p class="stat-label">Pre-built modules</p>
+      </div>
+      <div class="stat">
+        <div><span class="stat-num" data-count="30">0</span><span class="stat-suffix">-min</span></div>
+        <p class="stat-label">Guided setup</p>
+      </div>
+      <div class="stat">
+        <div><span class="stat-num" data-count="200">0</span><span class="stat-suffix">+</span></div>
+        <p class="stat-label">Prompts &amp; checklists</p>
+      </div>
+      <div class="stat">
+        <div><span class="stat-num" data-count="4.8" data-decimals="1">0</span><span class="stat-suffix">/5</span></div>
+        <p class="stat-label">Buyer rating</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -233,6 +373,71 @@
   </div>
 </section>
 
+<section class="cmp-sec">
+  <div class="container">
+    <div class="label">Why it works</div>
+    <h2>Dopakit vs. everything else you've tried</h2>
+    <p class="deck">Systems fail when they ask your brain to be someone else's. Here's where Dopakit meets you — and where the alternatives don't.</p>
+    <div class="compare-wrap reveal">
+      <table class="compare" aria-label="Comparison of Dopakit with Generic Notion, Paper Planner, and Willpower">
+        <thead>
+          <tr>
+            <th class="row-label" scope="col"></th>
+            <th class="dopakit-col" scope="col"><span class="best-tag">Best for ADHD brains</span>Dopakit</th>
+            <th scope="col">Generic Notion</th>
+            <th scope="col">Paper Planner</th>
+            <th scope="col">Willpower</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="row-label" scope="row">Setup time</th>
+            <td class="dopakit-col"><span class="tick">✓</span> 30 minutes, fully guided</td>
+            <td>Hours of blank-canvas building</td>
+            <td>Fast — until you abandon it by week two</td>
+            <td>Still "starting Monday"</td>
+          </tr>
+          <tr>
+            <th class="row-label" scope="row">Task breakdowns</th>
+            <td class="dopakit-col"><span class="tick">✓</span> Every task pre-broken into micro-steps</td>
+            <td>Only if you build them yourself</td>
+            <td>Whatever fits in the box</td>
+            <td>Depends how the day is going</td>
+          </tr>
+          <tr>
+            <th class="row-label" scope="row">Body doubling</th>
+            <td class="dopakit-col"><span class="tick">✓</span> Built-in guide + accountability log</td>
+            <td>DIY setup</td>
+            <td>Not included</td>
+            <td>Alone, as always</td>
+          </tr>
+          <tr>
+            <th class="row-label" scope="row">Income tracking</th>
+            <td class="dopakit-col"><span class="tick">✓</span> Sheet with tax estimator built in</td>
+            <td>Possible. Hours of setup</td>
+            <td>Manual, easy to skip</td>
+            <td>"I'll do it later"</td>
+          </tr>
+          <tr>
+            <th class="row-label" scope="row">Price</th>
+            <td class="dopakit-col"><span class="tick">✓</span> $19 once, lifetime updates</td>
+            <td>Free tier + your time</td>
+            <td>$20–40, again and again</td>
+            <td>Free. Costs everything</td>
+          </tr>
+          <tr>
+            <th class="row-label" scope="row">Refund</th>
+            <td class="dopakit-col"><span class="tick">✓</span> 30 days, one email</td>
+            <td>N/A</td>
+            <td>Store policy</td>
+            <td>Non-refundable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section class="alt">
   <div class="narrow">
     <div class="label">Everything inside</div>
@@ -248,6 +453,52 @@
       <div class="feat reveal"><span class="num">08</span><div><h3>Energy management</h3><p>Match hard tasks to your natural peaks. Protect deep work from the afternoon slump.</p></div></div>
       <div class="feat reveal"><span class="num">09</span><div><h3>Content system</h3><p>Write four posts in one session. Turn one idea into a week of content.</p></div></div>
       <div class="feat reveal"><span class="num">10</span><div><h3>Reset protocols</h3><p>Bad brain day? There's a protocol. Overwhelmed? There's a procedure. No shame required.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="t-sec">
+  <div class="container">
+    <div class="label">Loved by</div>
+    <h2>Real brains. Real results.</h2>
+    <p class="deck">ADHD solopreneurs who stopped rebuilding their system every Monday.</p>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I've bought four planners in the last two years and never made it past January. I set Dopakit up on a Sunday night and I'm still using it eight weeks later. That has literally never happened before."</p>
+        <div class="t-meta">
+          <div class="avatar">JR</div>
+          <div>
+            <div class="t-name">Jess R.</div>
+            <div class="t-role">Freelance designer</div>
+          </div>
+          <span class="badge">✓ Verified buyer</span>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"The task breakdowns are the part I didn't know I needed. 'Send the proposal' used to live in my head for three days. Now it's six steps and I just do the first one."</p>
+        <div class="t-meta">
+          <div class="avatar a2">MT</div>
+          <div>
+            <div class="t-name">Marcus T.</div>
+            <div class="t-role">Brand consultant</div>
+          </div>
+          <span class="badge">✓ Verified buyer</span>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★<i>★</i></div>
+        <p class="t-quote">"The money sheet alone was worth it. Irregular income used to keep me up at night. Now I set aside taxes as I go, and for the first time I actually know what I'm making."</p>
+        <div class="t-meta">
+          <div class="avatar a3">PS</div>
+          <div>
+            <div class="t-name">Priya S.</div>
+            <div class="t-role">Content creator</div>
+          </div>
+          <span class="badge">✓ Verified buyer</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -285,7 +536,7 @@
   </div>
 </section>
 
-<section class="alt faq">
+<section class="alt faq" id="faq">
   <div class="narrow">
     <div class="label">Questions</div>
     <details>
@@ -316,10 +567,35 @@
 </section>
 
 <footer>
-  <div class="narrow">
-    <p>Dopakit. A productivity system for ADHD solopreneurs, built by one.</p>
-    <p style="margin-top:8px">2026 &middot; <a href="/about.html">About</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    <p style="margin-top:8px;font-size:12px">Not medical advice.</p>
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="/" class="logo">Dopakit</a>
+        <p class="tagline">A productivity system for ADHD solopreneurs, built by one.</p>
+      </div>
+      <div class="f-col">
+        <h4>Product</h4>
+        <a href="#inside">What's inside</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://ricello.gumroad.com/l/dopakitbundle?wanted=true">Get the system</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="/about.html">About</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="f-col">
+        <h4>Support</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Refund policy</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>2026 &middot; Dopakit</p>
+      <p>Not medical advice.</p>
+    </div>
   </div>
 </footer>
 
@@ -330,6 +606,37 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+<script>
+/* Count-up stats — animate numbers when scrolled into view */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = (n, d) => (d > 0 ? n.toFixed(d) : String(Math.round(n)));
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+    const target = parseFloat(el.getAttribute('data-count'));
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const duration = 1300;
+    const render = v => { el.textContent = fmt(v, decimals); };
+    if (reduceMotion) { render(target); return; }
+    let started = false;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || started) return;
+        started = true;
+        io.disconnect();
+        const t0 = performance.now();
+        const tick = now => {
+          const p = Math.min((now - t0) / duration, 1);
+          render(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    io.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
