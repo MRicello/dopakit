@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dopakit — Welcome</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Newsreader:opsz,wght@6..72,400..600&display=swap');
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif; color: #1c1917; line-height: 1.55; font-size: 10pt; }
+  .page { width: 210mm; min-height: 297mm; padding: 20mm 24mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .letter { padding-top: 11mm; padding-bottom: 8mm; font-size: 9.6pt; }
+
+  /* ---------- Page 1 : Cover ---------- */
+  .cover { background: #1c1917; color: #fafaf9; display: flex; flex-direction: column; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; }
+  .wordmark { font-size: 15pt; font-weight: 700; letter-spacing: -0.5px; }
+  .wordmark span { color: #fb923c; }
+  .edition { font-size: 8pt; color: #a8a29e; text-transform: uppercase; letter-spacing: 1.5px; }
+  .cover-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 30mm 0 20mm; }
+  .kicker { font-size: 9pt; color: #fb923c; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 8mm; }
+  .cover h1 { font-family: 'Newsreader', Georgia, serif; font-size: 34pt; font-weight: 600; line-height: 1.12; letter-spacing: -1px; margin-bottom: 8mm; }
+  .cover .lede { font-size: 12pt; color: #d6d3d1; max-width: 130mm; }
+  .cover .lede strong { color: #fff; }
+  .cover-bottom { border-top: 1px solid #44403c; padding-top: 8mm; font-size: 9pt; color: #a8a29e; display: flex; justify-content: space-between; }
+
+  /* ---------- Page 2 : Letter ---------- */
+  .letter { background: #fff; }
+  .letter .wordmark { color: #1c1917; }
+  .letter-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e7e5e4; padding-bottom: 4mm; margin-bottom: 6mm; }
+  .date { font-size: 9pt; color: #78716c; }
+  .letter h2 { font-family: 'Newsreader', Georgia, serif; font-size: 17pt; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 3mm; }
+  .letter p { margin-bottom: 2.8mm; }
+  .letter .sig { margin-top: 4mm; }
+  .letter .sig .name { font-weight: 700; }
+  .letter .sig .role { font-size: 9pt; color: #78716c; }
+
+  .panel { background: #fff7ed; border: 1px solid #fed7aa; border-left: 4px solid #fb923c; border-radius: 0 8px 8px 0; padding: 4.5mm 6mm; margin: 5mm 0; font-size: 9pt; }
+  .panel strong { color: #9a3412; }
+
+  .filelist { margin: 4mm 0 5mm; }
+  .filelist .row { display: flex; gap: 5mm; padding: 2mm 0; border-bottom: 1px solid #f0efed; font-size: 8.8pt; }
+  .filelist .row:last-child { border-bottom: none; }
+  .filelist .fname { font-weight: 600; width: 62mm; flex-shrink: 0; }
+  .filelist .fdesc { color: #57534e; }
+  .filelist .badge { display: inline-block; background: #1c1917; color: #fff; font-size: 7pt; font-weight: 600; padding: 1px 6px; border-radius: 10px; margin-left: 4px; vertical-align: middle; letter-spacing: 0.5px; }
+  .filelist .badge.new { background: #ea580c; }
+
+  .steps { margin: 3mm 0 5mm; }
+  .step { display: flex; gap: 5mm; margin-bottom: 2.8mm; }
+  .step .n { width: 7.5mm; height: 7.5mm; border-radius: 50%; background: #1c1917; color: #fff; font-weight: 700; font-size: 9.5pt; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.5mm; }
+  .step .body strong { display: block; }
+  .step .body { font-size: 9pt; }
+
+  .footer-note { margin-top: 2mm; padding-top: 2.5mm; border-top: 1px solid #e7e5e4; font-size: 8pt; color: #a8a29e; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 : COVER ================= -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="wordmark">Dopa<span>kit</span></div>
+    <div class="edition">The Dopamine-Driven Solopreneur System</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="kicker">Welcome to the system</div>
+    <h1>You bought a productivity system built for your brain.<br>Not the other way around.</h1>
+    <p class="lede">Everything inside this box was designed around one idea: <strong>dopamine is the fuel, and we're going to stop fighting that fact.</strong> No rigid schedules. No shame. No "just try harder." Just tools that work the way your brain actually works.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div>Made for solopreneurs · freelancers · indie creators</div>
+    <div>dopakit.com · support@dopakit.com</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 : LETTER ================= -->
+<div class="page letter">
+  <div class="letter-top">
+    <div class="wordmark">Dopa<span style="color:#ea580c">kit</span></div>
+    <div class="date">Welcome Edition — v1.0</div>
+  </div>
+
+  <h2>Hi, welcome in.</h2>
+
+  <p>If you're reading this, you've probably tried the normal productivity systems — GTD, the bullet journal, the 5am wake-up — the ones written for brains that don't need to be tricked into starting. And somewhere along the way, you concluded the problem was <em>you</em>. It wasn't.</p>
+
+  <div class="panel"><strong>The promise:</strong> use even one piece of this system for two weeks — the daily focus sheet, one task breakdown, one body doubling session — and you'll get more done than in your last month of "trying harder." That's the dopamine mechanics, not hype.</div>
+
+  <h2>What's in your box</h2>
+  <div class="filelist">
+    <div class="row"><div class="fname">welcome-letter.html <span class="badge">PDF</span></div><div class="fdesc">You're reading it. Keep it — it's your map.</div></div>
+    <div class="row"><div class="fname">quick-start-guide.html <span class="badge">PDF</span></div><div class="fdesc">4-step setup and your first 7 days, day by day.</div></div>
+    <div class="row"><div class="fname">reference-card.html <span class="badge">PDF</span></div><div class="fdesc">One-page cheat sheet for your wall: routines, rewards, scripts, money rules.</div></div>
+    <div class="row"><div class="fname">notion-template-structure.md</div><div class="fdesc">Build your whole Notion workspace. ~20–30 min.</div></div>
+    <div class="row"><div class="fname">printable-planner.md</div><div class="fdesc">Weekly, daily, task breakdowns, brain dump, dopamine menu, monthly review. A4 + US Letter.</div></div>
+    <div class="row"><div class="fname">body-doubling-guide.md</div><div class="fdesc">Find partners, run sessions, use accountability without guilt.</div></div>
+    <div class="row"><div class="fname">dopakit-money-tracker.xlsx</div><div class="fdesc">Income, expenses, tax set-aside, feast-or-famine chart — formulas included. Amounts in €.</div></div>
+    <div class="row"><div class="fname">google-sheets-tracker.md</div><div class="fdesc">The same tracker as a Google Sheet, with setup steps.</div></div>
+  </div>
+
+  <h2>Your first 15 minutes</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="body"><strong>Print two things.</strong> The reference card and one daily focus sheet. Tape the card by your screen. Three minutes, changes the week.</div></div>
+    <div class="step"><div class="n">2</div><div class="body"><strong>Follow the quick-start guide.</strong> Build the skeleton first — don't customize yet.</div></div>
+    <div class="step"><div class="n">3</div><div class="body"><strong>Add three real tasks to Today</strong> in your dashboard. Pick the hardest — that's your first focus sprint tomorrow.</div></div>
+    <div class="step"><div class="n">4</div><div class="body"><strong>Schedule one body doubling session</strong> this week. Even one. The guide includes ready-to-send invites.</div></div>
+  </div>
+
+  <p>Questions, a stuck setup step, a "where does this go" moment — <strong>support@dopakit.com</strong>, a real human replies within 24 hours.</p>
+
+  <div class="sig">
+    <p class="name">— The Dopakit team</p>
+    <p class="role">Built by solopreneurs, for solopreneurs. With ADHD. Obviously.</p>
+  </div>
+
+  <div class="footer-note">
+    <div>© 2026 Dopakit · Personal license — yours forever, one device set.</div>
+    <div>Progress, not perfection.</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dopakit — Body Doubling Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Newsreader:opsz,wght@6..72,400..600&display=swap');
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif; color: #1c1917; line-height: 1.55; font-size: 10pt; }
+  .page { width: 210mm; min-height: 297mm; padding: 20mm 24mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- Dark pages (cover + closing CTA) ---------- */
+  .cover { background: #1c1917; color: #fafaf9; display: flex; flex-direction: column; }
+  .cover-top { display: flex; justify-content: space-between; align-items: center; }
+  .wordmark { font-size: 15pt; font-weight: 700; letter-spacing: -0.5px; }
+  .wordmark span { color: #fb923c; }
+  .edition { font-size: 8pt; color: #a8a29e; text-transform: uppercase; letter-spacing: 1.5px; }
+  .cover-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 30mm 0 20mm; }
+  .kicker { font-size: 9pt; color: #fb923c; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 8mm; }
+  .cover h1 { font-family: 'Newsreader', Georgia, serif; font-size: 34pt; font-weight: 600; line-height: 1.12; letter-spacing: -1px; margin-bottom: 8mm; }
+  .cover .lede { font-size: 12pt; color: #d6d3d1; max-width: 130mm; }
+  .cover .lede strong { color: #fff; }
+  .cover-bottom { border-top: 1px solid #44403c; padding-top: 8mm; font-size: 9pt; color: #a8a29e; display: flex; justify-content: space-between; }
+
+  /* ---------- Interior pages ---------- */
+  .interior { background: #fff; padding: 16mm 24mm 18mm; }
+  .letter-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e7e5e4; padding-bottom: 4mm; margin-bottom: 8mm; }
+  .letter-top .wordmark { color: #1c1917; font-size: 12pt; }
+  .date { font-size: 9pt; color: #78716c; }
+
+  .sec-kicker { font-size: 7.5pt; color: #ea580c; text-transform: uppercase; letter-spacing: 1.8px; font-weight: 700; margin: 7mm 0 1.5mm; }
+  .sec-kicker:first-of-type { margin-top: 0; }
+  .interior h2 { font-family: 'Newsreader', Georgia, serif; font-size: 18pt; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 3.5mm; }
+  .interior h3 { font-size: 10.5pt; font-weight: 700; margin: 5mm 0 2mm; }
+  .interior p { margin-bottom: 3mm; }
+  .interior em { font-style: italic; }
+
+  .interior ul { list-style: none; padding-left: 5mm; margin: 0 0 3mm; }
+  .interior ul li { position: relative; padding-left: 4mm; margin-bottom: 1.8mm; }
+  .interior ul li::before { content: ""; position: absolute; left: 0; top: 4.2pt; width: 2.2mm; height: 2.2mm; border-radius: 50%; background: #fb923c; }
+
+  .steps { margin: 2mm 0 4mm; }
+  .step { display: flex; gap: 5mm; margin-bottom: 3mm; }
+  .step .n { width: 7.5mm; height: 7.5mm; border-radius: 50%; background: #1c1917; color: #fff; font-weight: 700; font-size: 9.5pt; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.5mm; }
+  .step .body { font-size: 9.4pt; }
+  .step .body strong { display: block; }
+  .step .mini { margin: 1.5mm 0 0 0; padding-left: 4mm; }
+  .step .mini li { margin-bottom: 1mm; font-size: 9pt; color: #57534e; }
+
+  .panel { background: #fff7ed; border: 1px solid #fed7aa; border-left: 4px solid #fb923c; border-radius: 0 8px 8px 0; padding: 4mm 6mm; margin: 3.5mm 0 4.5mm; font-size: 9.2pt; }
+  .panel strong { color: #9a3412; }
+
+  .not-list { background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 8px; padding: 4mm 6mm; margin: 2mm 0 4mm; }
+  .not-row { display: flex; gap: 4mm; padding: 1.8mm 0; font-size: 9.4pt; }
+  .not-row + .not-row { border-top: 1px solid #f0efed; }
+  .not-row .x { color: #ea580c; font-weight: 700; flex-shrink: 0; }
+  .not-row strong { color: #1c1917; }
+
+  .template { background: #fafaf9; border: 1.5px dashed #d6d3d1; border-radius: 8px; padding: 5.5mm 7mm; margin: 3mm 0 4mm; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 9pt; line-height: 1.75; color: #44403c; }
+
+  .footer-note { position: absolute; bottom: 9mm; left: 24mm; right: 24mm; padding-top: 2.5mm; border-top: 1px solid #e7e5e4; font-size: 8pt; color: #a8a29e; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 : COVER ================= -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="wordmark">Dopa<span>kit</span></div>
+    <div class="edition">The Dopamine-Driven Solopreneur System</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="kicker">Body doubling, done right</div>
+    <h1>Work next to someone.<br>Actually get things done.</h1>
+    <p class="lede">Body doubling is the cheapest focus tool in this system: another human, same room or same call, separate tasks. No interaction required — <strong>their presence does the work.</strong> This guide shows you how to set sessions up, find partners, and use them without a gram of guilt.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div>Made for solopreneurs · freelancers · indie creators</div>
+    <div>dopakit.com · support@dopakit.com</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 : WHAT IT IS + SETUP ================= -->
+<div class="page interior">
+  <div class="letter-top">
+    <div class="wordmark">Dopa<span style="color:#ea580c">kit</span></div>
+    <div class="date">Body Doubling Guide — v1.0</div>
+  </div>
+
+  <div class="sec-kicker">01 · The core idea</div>
+  <h2>What is body doubling?</h2>
+  <p>Body doubling is working alongside someone else — in person or virtually — while you each do your own tasks. You don't need to interact. You just need another human present.</p>
+  <p>It works because your brain registers another person working near you and thinks <em>"we're doing work now."</em> This taps into a social wiring that standard productivity advice ignores.</p>
+  <div class="panel"><strong>Why it works for ADHD brains:</strong> body doubling lowers the activation energy needed to start a task. You were going to do it anyway. Now someone's there. So you start.</div>
+
+  <div class="sec-kicker">02 · Setup</div>
+  <h2>Setting up a virtual body doubling session</h2>
+  <h3>What you need</h3>
+  <ul>
+    <li>A video call link (Zoom, Google Meet, Discord, FaceTime)</li>
+    <li>A clear statement of what you'll work on</li>
+    <li>A timer (optional)</li>
+    <li>One or more other people who also want to get something done</li>
+  </ul>
+
+  <h3>Step by step</h3>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="body"><strong>Schedule a 60–90 minute block.</strong> Shorter is fine. Longer than 90 minutes and focus tends to drift.</div></div>
+    <div class="step"><div class="n">2</div><div class="body"><strong>State your task at the start of the call.</strong> Be specific. Not "I'll do admin" but "I'll clear my inbox and send three invoices."</div></div>
+    <div class="step"><div class="n">3</div><div class="body"><strong>Mute microphones.</strong> Keep cameras on if you want the visual cue that someone's there. Cameras off with occasional check-ins works too.</div></div>
+    <div class="step"><div class="n">4</div><div class="body"><strong>Work.</strong> Don't chat. That's the whole point.</div></div>
+    <div class="step"><div class="n">5</div><div class="body"><strong>Check in at the halfway mark.</strong> 30 seconds each. "Still going. Two invoices done. Switching to inbox."</div></div>
+    <div class="step"><div class="n">6</div><div class="body"><strong>Say what you finished at the end.</strong> This matters. Your brain needs to register the completion.</div></div>
+  </div>
+
+  <div class="footer-note">
+    <div>© 2026 Dopakit · Body Doubling Guide</div>
+    <div>Progress, not perfection.</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 3 : PARTNERS + ACCOUNTABILITY ================= -->
+<div class="page interior">
+  <div class="letter-top">
+    <div class="wordmark">Dopa<span style="color:#ea580c">kit</span></div>
+    <div class="date">Body Doubling Guide — v1.0</div>
+  </div>
+
+  <div class="sec-kicker">03 · People</div>
+  <h2>Finding body doubling partners</h2>
+  <ul>
+    <li>Ask another freelancer or solopreneur you know</li>
+    <li>Join a coworking Discord server (many exist, free)</li>
+    <li>Use Focusmate (focusmate.com) — three free sessions per week</li>
+    <li>Post on Twitter/LinkedIn: "Anyone want to do a 60-min body doubling session Thursday at 10am EST?"</li>
+    <li>Join or start a weekly standing session with 2–3 people. Same time, same link, every week.</li>
+  </ul>
+
+  <div class="sec-kicker">04 · The long game</div>
+  <h2>Accountability partnerships</h2>
+  <p>A body doubling session is one-off. An accountability partner is ongoing.</p>
+  <h3>How to set one up</h3>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="body"><strong>Find someone with similar goals.</strong> Another solopreneur is ideal. They don't need to be in your industry.</div></div>
+    <div class="step"><div class="n">2</div><div class="body"><strong>Agree on a check-in format.</strong> Pick one that fits your week:
+      <ul class="mini">
+        <li>Daily: one Slack message with your top 3 tasks</li>
+        <li>Weekly: 15-minute call reviewing what got done</li>
+        <li>Start-of-session: quick message before a focus block</li>
+      </ul>
+    </div></div>
+    <div class="step"><div class="n">3</div><div class="body"><strong>Set a start date and an end date.</strong> "Let's try this for four weeks and see how it works." This removes the pressure of "forever."</div></div>
+    <div class="step"><div class="n">4</div><div class="body"><strong>Be honest.</strong> If you didn't do the thing, say so. No shame. Just "didn't happen, here's why, retrying tomorrow." The value is in the check-in, not in being perfect.</div></div>
+  </div>
+
+  <h3>What accountability is not</h3>
+  <div class="not-list">
+    <div class="not-row"><span class="x">✗</span><div><strong>It's not coaching.</strong> You're not paying them to fix your life.</div></div>
+    <div class="not-row"><span class="x">✗</span><div><strong>It's not venting.</strong> Keep it focused on tasks and progress.</div></div>
+    <div class="not-row"><span class="x">✗</span><div><strong>It's not competitive.</strong> You're not racing. You're supporting.</div></div>
+  </div>
+
+  <div class="footer-note">
+    <div>© 2026 Dopakit · Body Doubling Guide</div>
+    <div>Progress, not perfection.</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 4 : THE LOG + PROBLEMS ================= -->
+<div class="page interior">
+  <div class="letter-top">
+    <div class="wordmark">Dopa<span style="color:#ea580c">kit</span></div>
+    <div class="date">Body Doubling Guide — v1.0</div>
+  </div>
+
+  <div class="sec-kicker">05 · Prove it to yourself</div>
+  <h2>The "Did the Thing" log</h2>
+  <p>Your brain is bad at remembering what you actually accomplished. It's very good at remembering what you didn't do.</p>
+  <p>Keep a running list. Every day, write down 1–3 things you finished. Small things count. "Answered three emails" counts. "Wrote one paragraph of the proposal" counts.</p>
+  <p>At the end of the week, read the list. You'll be surprised how much you actually did.</p>
+
+  <div class="template">
+    Date: ______________<br>
+    Things I finished today:<br>
+    &nbsp;&nbsp;1.<br>
+    &nbsp;&nbsp;2.<br>
+    &nbsp;&nbsp;3.<br>
+    <br>
+    One thing I'm proud of:<br>
+    ______________
+  </div>
+  <p><strong>Print this page. Fill it out. Keep it somewhere visible.</strong></p>
+
+  <div class="sec-kicker">06 · Troubleshooting</div>
+  <h2>Common problems and fixes</h2>
+  <div class="panel"><strong>"I can't focus even with someone there."</strong><br>Try shorter sessions. 25 minutes. Ten is fine. Build the muscle.</div>
+  <div class="panel"><strong>"I feel awkward being on camera."</strong><br>Camera off is fine. Voice check-ins only. The presence is what matters, not the visual.</div>
+  <div class="panel"><strong>"I can't find anyone to body double with."</strong><br>Start with Focusmate (free tier). Once you're comfortable, invite someone you know. Most people say yes — they also have things they've been putting off.</div>
+  <div class="panel"><strong>"I keep forgetting to do my check-ins."</strong><br>Set a recurring calendar event. Same time every day. Treat it like a client meeting you can't skip.</div>
+
+  <div class="footer-note">
+    <div>© 2026 Dopakit · Body Doubling Guide</div>
+    <div>Progress, not perfection.</div>
+  </div>
+</div>
+
+<!-- ================= PAGE 5 : CLOSING CTA ================= -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="wordmark">Dopa<span>kit</span></div>
+    <div class="edition">The Dopamine-Driven Solopreneur System</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="kicker">Start now</div>
+    <h1>Now go schedule your first session — even 25 minutes counts.</h1>
+    <p class="lede">Then open your Dopakit dashboard and log it under <strong>"Small wins."</strong> That's how this system works: small steps, stacked. You've got this.</p>
+  </div>
+
+  <div class="cover-bottom">
+    <div>Made for solopreneurs · freelancers · indie creators</div>
+    <div>dopakit.com · support@dopakit.com</div>
+  </div>
+</div>
+
+</body>
+</html>

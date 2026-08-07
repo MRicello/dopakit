@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dopakit — Weekly Planner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap');
+  @page { size: A4; margin: 12mm; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: #1c1917; font-size: 9.5pt; line-height: 1.5; }
+  
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+  
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #1c1917; padding-bottom: 10px; margin-bottom: 16px; }
+  .header h1 { font-size: 18pt; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
+  .header .date { font-size: 10pt; color: #78716c; }
+  
+  .week-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+  .day { border: 1px solid #e7e5e4; border-radius: 6px; padding: 10px; min-height: 160px; }
+  .day h3 { font-size: 11pt; font-weight: 700; margin: 0 0 6px; padding-bottom: 4px; border-bottom: 1px solid #f0efed; }
+  .day .focus { font-size: 8pt; color: #3b82f6; font-weight: 600; margin-bottom: 6px; }
+  .day .task { font-size: 8.5pt; margin: 2px 0; padding-left: 12px; position: relative; }
+  .day .task::before { content: '□'; position: absolute; left: 0; color: #a8a29e; font-size: 9pt; }
+  .day .energy { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 7pt; font-weight: 600; margin-top: 8px; }
+  .energy.high { background: #dcfce7; color: #166534; }
+  .energy.med { background: #fef9c3; color: #854d0e; }
+  .energy.low { background: #fef2f2; color: #991b1b; }
+  
+  .section { border: 1px solid #e7e5e4; border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+  .section h2 { font-size: 12pt; font-weight: 700; margin: 0 0 8px; }
+  .section .prompt { color: #78716c; font-size: 9pt; margin: 4px 0; }
+  .section .line { border-bottom: 1px dotted #d6d3d1; height: 20px; margin: 4px 0; }
+  
+  .bp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bp-card { border: 1px solid #e7e5e4; border-radius: 6px; padding: 10px; }
+  .bp-card h3 { font-size: 10pt; font-weight: 700; margin: 0 0 4px; }
+  .bp-card .steps { font-size: 8pt; color: #57534e; }
+  .bp-card .steps span { display: block; margin: 1px 0; }
+  
+  .menu-item { display: inline-block; border: 1px solid #e7e5e4; border-radius: 4px; padding: 3px 8px; margin: 2px; font-size: 8pt; }
+  .menu-item.done { background: #f0fdf4; border-color: #bbf7d0; }
+  
+  .footer { text-align: center; font-size: 7pt; color: #a8a29e; margin-top: 20px; padding-top: 10px; border-top: 1px solid #e7e5e4; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Weekly Overview -->
+<div class="page">
+  <div class="header">
+    <h1>Weekly Planner</h1>
+    <div class="date">Week of: _______________</div>
+  </div>
+  
+  <div class="week-grid">
+    <div class="day"><h3>Monday</h3><div class="focus">Focus block: 9–11am</div><div class="task">_________________</div><div class="task">_________________</div><div class="task">_________________</div><span class="energy high">Peak energy</span></div>
+    <div class="day"><h3>Tuesday</h3><div class="focus">Focus block: 9–11am</div><div class="task">_________________</div><div class="task">_________________</div><div class="task">_________________</div><span class="energy med">Meetings day</span></div>
+    <div class="day"><h3>Wednesday</h3><div class="focus">Focus block: 9–11am</div><div class="task">_________________</div><div class="task">_________________</div><div class="task">_________________</div><span class="energy high">Peak energy</span></div>
+    <div class="day"><h3>Thursday</h3><div class="focus">Focus block: 9–11am</div><div class="task">_________________</div><div class="task">_________________</div><div class="task">_________________</div><span class="energy med">Admin catchup</span></div>
+    <div class="day"><h3>Friday</h3><div class="focus">Focus block: 9–11am</div><div class="task">_________________</div><div class="task">_________________</div><div class="task">_________________</div><span class="energy low">Wrap-up mode</span></div>
+  </div>
+  
+  <div class="section">
+    <h2>Sunday Reset (10 minutes)</h2>
+    <div class="prompt">1. The ONE thing that must happen this week:</div>
+    <div class="line"></div>
+    <div class="prompt">2. What meetings or deadlines are fixed?</div>
+    <div class="line"></div>
+    <div class="prompt">3. What can I say no to?</div>
+    <div class="line"></div>
+    <div class="prompt">4. What does a good week look like?</div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- PAGE 2: Task Breakdown + Body Doubling -->
+<div class="page">
+  <div class="header">
+    <h1>Task Breakdown</h1>
+    <div class="date">Pick one complex task. Break it down.</div>
+  </div>
+  
+  <div class="section">
+    <h2>The big task</h2>
+    <div class="line"></div>
+    <h2 style="margin-top:12px;">Smallest possible steps (5–20 min each)</h2>
+    <div class="task">Step 1: _________________________________</div>
+    <div class="task">Step 2: _________________________________</div>
+    <div class="task">Step 3: _________________________________</div>
+    <div class="task">Step 4: _________________________________</div>
+    <div class="task">Step 5: _________________________________</div>
+    <div class="task">Step 6: _________________________________</div>
+    <div class="prompt" style="margin-top:12px;">Which step takes the least energy? Do that one first. Build momentum.</div>
+  </div>
+
+  <div class="section">
+    <h2>Body Doubling Session</h2>
+    <div class="prompt">Partner: _______________ &nbsp;&nbsp; Date: _______________ &nbsp;&nbsp; Time: _______________</div>
+    <div class="prompt" style="margin-top:4px;">What I'll work on: _________________________________</div>
+    <div class="prompt">What they'll work on: _________________________________</div>
+    <div style="margin-top:8px; font-size:8pt; color:#78716c;">
+      Rules: 60–90 min. Mute mics. Cameras optional. Mid-point check-in: 30 seconds each.<br>
+      End: each person says what they finished. Your brain needs to register completion.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Did the Thing — Win Log</h2>
+    <div class="prompt">Mon: _________________________________</div>
+    <div class="prompt">Tue: _________________________________</div>
+    <div class="prompt">Wed: _________________________________</div>
+    <div class="prompt">Thu: _________________________________</div>
+    <div class="prompt">Fri: _________________________________</div>
+    <div style="margin-top:8px; font-size:8pt; color:#78716c;">Small things count. "Answered three emails" counts. Your brain forgets wins. Write them down.</div>
+  </div>
+</div>
+
+<!-- PAGE 3: Dopamine Menu + Energy -->
+<div class="page">
+  <div class="header">
+    <h1>Dopamine Menu</h1>
+    <div class="date">Earn rewards. Never pre-reward.</div>
+  </div>
+  
+  <div class="bp-grid">
+    <div class="bp-card">
+      <h3>5-minute rewards</h3>
+      <div class="steps"><span>After 2 micro-tasks:</span></div>
+      <span class="menu-item">Stand & stretch</span><span class="menu-item">Tea or coffee</span>
+      <span class="menu-item">Outside 60 sec</span><span class="menu-item">One song, loud</span>
+      <span class="menu-item">20 jumping jacks</span><span class="menu-item">Cold water face</span>
+      <span class="menu-item">Voice note to friend</span>
+    </div>
+    <div class="bp-card">
+      <h3>15-minute rewards</h3>
+      <div class="steps"><span>After a focus sprint:</span></div>
+      <span class="menu-item">One YouTube video</span><span class="menu-item">Saved article</span>
+      <span class="menu-item">Walk around block</span><span class="menu-item">Quick call to friend</span>
+      <span class="menu-item">One game round</span>
+    </div>
+    <div class="bp-card">
+      <h3>30-minute rewards</h3>
+      <div class="steps"><span>After a project milestone:</span></div>
+      <span class="menu-item">One TV episode</span><span class="menu-item">Order favorite lunch</span>
+      <span class="menu-item">Take a nap</span><span class="menu-item">Read a book chapter</span>
+    </div>
+    <div class="bp-card">
+      <h3>My custom rewards</h3>
+      <span class="menu-item">_________________</span>
+      <span class="menu-item">_________________</span>
+      <span class="menu-item">_________________</span>
+      <span class="menu-item">_________________</span>
+    </div>
+  </div>
+
+  <div class="section" style="margin-top:14px;">
+    <h2>Energy Matching</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:9pt;">
+      <tr style="background:#1c1917;color:#fff;"><th style="padding:6px 10px;text-align:left;">Energy</th><th style="padding:6px 10px;text-align:left;">Do this</th><th style="padding:6px 10px;text-align:left;">Avoid this</th></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;font-weight:600;color:#166534;">High</td><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;">Deep work, writing, strategy, hard conversations</td><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;">Email, admin, meetings</td></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;font-weight:600;color:#854d0e;">Medium</td><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;">Meetings, planning, research, code review</td><td style="padding:6px 10px;border-bottom:1px solid #e7e5e4;">Starting new complex projects</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:600;color:#991b1b;">Low</td><td style="padding:6px 10px;">Email, filing, data entry, simple fixes</td><td style="padding:6px 10px;">Important decisions, client calls</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Friday Review</h2>
+    <div class="prompt">What shipped this week? _________________________________</div>
+    <div class="prompt">What got pushed? _________________________________</div>
+    <div class="prompt">One thing to change next week: _________________________________</div>
+  </div>
+</div>
+
+<!-- PAGE 4: Money + Reset -->
+<div class="page">
+  <div class="header">
+    <h1>Money Check-in</h1>
+    <div class="date">Monthly: First Sunday. Weekly: Friday.</div>
+  </div>
+
+  <div class="section">
+    <h2>This Month</h2>
+    <table style="width:100%;border-collapse:collapse;font-size:9.5pt;">
+      <tr style="background:#fafaf9;"><td style="padding:6px 10px;font-weight:600;">Income this month</td><td style="padding:6px 10px;">€ _______________</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:600;">Expenses</td><td style="padding:6px 10px;">€ _______________</td></tr>
+      <tr style="background:#fafaf9;"><td style="padding:6px 10px;font-weight:600;">Tax set-aside (30%)</td><td style="padding:6px 10px;">€ _______________</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:600;">Take-home</td><td style="padding:6px 10px;font-weight:700;">€ _______________</td></tr>
+    </table>
+    <div style="margin-top:6px;font-size:8pt;color:#78716c;">Every time you get paid: log it. Move 30% to a separate account. Don't touch it.</div>
+  </div>
+
+  <div class="section">
+    <h2>Bad Brain Day Protocol</h2>
+    <div class="bp-grid">
+      <div class="bp-card">
+        <h3>The procedure</h3>
+        <div class="steps">
+          <span>1. Say it: "Today's a bad brain day."</span>
+          <span>2. Pick ONE small task. Do only that.</span>
+          <span>3. Can't? Shower. Eat. Outside 10 min.</span>
+          <span>4. Try the small task again.</span>
+          <span>5. Still can't? Maintenance day. Low-energy stuff.</span>
+          <span>6. No guilt. Tomorrow is another shot.</span>
+        </div>
+      </div>
+      <div class="bp-card">
+        <h3>Overwhelm Procedure</h3>
+        <div class="steps">
+          <span>1. Close all tabs.</span>
+          <span>2. Write down everything in your head.</span>
+          <span>3. Circle 3 things that matter this week.</span>
+          <span>4. Cross out everything else.</span>
+          <span>5. Pick the smallest step from circled items.</span>
+          <span>6. Do that one thing. Repeat.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Monthly Review</h2>
+    <div class="prompt">What got done this month? (List everything — you did more than you think)</div>
+    <div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="prompt">What kept getting pushed to next week?</div>
+    <div class="line"></div>
+    <div class="prompt">What part of Dopakit did I actually use? What did I ignore?</div>
+    <div class="line"></div>
+    <div class="prompt">ONE thing I'll change next month:</div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<div class="footer">Dopakit — dopakit.com — Not medical advice.</div>
+
+</body>
+</html>

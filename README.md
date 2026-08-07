@@ -16,8 +16,8 @@ ADHD-friendly productivity system for solopreneurs. Notion template + printable 
 10. Reset & Recovery Toolkit
 
 ## Pricing
-- **Bundle:** $19 (Notion + PDF + Sheets + Bonuses)
-- **PDF Only:** $12
+- **Bundle:** €19 (Notion + PDF + Sheets + Bonuses)
+- **PDF Only:** €12
 
 ## Tech
 - Static HTML/CSS landing page
@@ -26,4 +26,4 @@ ADHD-friendly productivity system for solopreneurs. Notion template + printable 
 
 ---
 
-*Created with AI assistance. Not medical advice.*
+*Built for ADHD solopreneurs, by one. Not medical advice.*
